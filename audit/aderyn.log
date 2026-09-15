@@ -1,0 +1,32 @@
+
+-------------------------------------
+# Configuration
+-------------------------------------
+Root - [redacted]
+Source - [redacted]
+Remappings - [
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "forge-std/=lib/forge-std/src/",
+    "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/",
+]
+EVM version - osaka
+-------------------------------------
+# Source Scope
+-------------------------------------
+Include Filepaths Containing - No specific criteria.
+Exclude Filepaths Containing - No specific criteria.
+Auto Excluding - No Files.
+-------------------------------------
+# Compiling Abstract Syntax Trees
+-------------------------------------
+Ingesting 5 compiled files [solc : v0.8.36]
+-------------------------------------
+# Scanning Contracts
+-------------------------------------
+Running 88 detectors
+Detectors run, printing report.
+Report printed to report.md
+
+✔ Aderyn did its job. Solidity's a bit safer now.
+💫 Like the tool? A star on GitHub goes a long way:
+https://github.com/Cyfrin/aderyn

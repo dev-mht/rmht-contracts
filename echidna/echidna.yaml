@@ -1,0 +1,11 @@
+# Lancer avec : echidna . --contract RMHTEchidnaInvariants --config echidna_20260814_0319.yaml
+# (nom de fichier libre pour echidna, contrairement à wake.toml/foundry.toml)
+# Mode par défaut non précisé : Echidna vérifie à la fois les fonctions
+# echidna_* (doivent toujours renvoyer true) ET tout assert() qui échoue
+# pendant le fuzzing — les deux sont utilisés dans le harness ci-dessous.
+
+testLimit: 50000
+seqLen: 100
+corpusDir: echidna-corpus
+coverage: true
+solcVersion: "0.8.36"

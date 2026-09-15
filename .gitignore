@@ -1,0 +1,20 @@
+# Artefacts de compilation Foundry
+/out/
+/cache/
+/broadcast/*/dry-run/
+
+# Caches d'outils d'audit
+/.wake/
+/wake-compat/.wake/
+/wake-compat/src/          # regenere par build_wake_compat.py
+/.deps/
+/echidna-corpus/
+/lcov.info
+
+# macOS
+.DS_Store
+
+# Secrets — ne JAMAIS committer
+.env
+.env.*
+*.key

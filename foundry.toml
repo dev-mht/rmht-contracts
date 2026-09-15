@@ -1,0 +1,76 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+via_ir = true
+optimizer = true
+optimizer_runs = 200
+# Pragma désépinglé en plage (>=0.8.34 <0.8.37) pour laisser Wake compiler en
+# 0.8.34 (plafond connu de l'outil) sans bloquer Foundry — mais on fixe ici
+# explicitement 0.8.36 pour que le code réellement testé/déployé garde le
+# bugfix qui a motivé le passage de 0.8.34 à 0.8.36, sans dépendre de la
+# version solc la plus haute installée localement.
+solc = "0.8.36"
+# MàJ 27/08/2026 (résolution S9.2.5) : jusqu'ici laissé au défaut implicite
+# de solc 0.8.36, qui se trouve être "osaka" — confirmé être EXACTEMENT ce
+# que supporte Robinhood Chain (ArbOS 61 "Elara", qui inclut le support
+# Fusaka/Osaka apporté par ArbOS 51 "Dia", activé le 08/01/2026 — cf. rapport
+# de session 27/08/2026 18h). Épinglé ici en dur pour ne plus dépendre du
+# défaut implicite d'une future version de solc, qui pourrait un jour cibler
+# un fork plus récent (ex. Glamsterdam) avant que la chaîne ne le supporte.
+# EOF (la partie la plus lourde qui aurait pu faire partie d'Osaka) a été
+# retirée de Fusaka en avril 2025 et reportée à Glamsterdam — donc "osaka"
+# ne porte aucune sémantique EOF, ni côté Ethereum mainnet ni côté ArbOS.
+evm_version = "osaka"
+
+# MàJ 28/08/2026 — Foundry >= 1.8 active par défaut le "dynamic test linking" :
+# les `new Contract(...)` des fichiers de test/script sont réécrits en
+# vm.deployCode(...) pour accélérer la compilation. Effet de bord constaté ici :
+# un `vm.prank(x)` placé juste avant un `new RMHT(...)` n'est plus consommé par
+# le déploiement (c'est un appel cheatcode) et FUIT sur l'instruction suivante —
+# dans nos setUp(), le prank atterrissait sur `new MockAggregatorV3(...)`, dont
+# le owner devenait alors `owner` au lieu du contrat de test, et tous les setUp
+# échouaient sur "MockAggregatorV3: Not owner". Désactivé explicitement pour que
+# la suite se comporte à l'identique quelle que soit la version de Foundry
+# installée localement. (Équivalent en ligne de commande : --no-dynamic-test-linking.)
+dynamic_test_linking = false
+
+[rpc_endpoints]
+robinhood_testnet = "https://rpc.testnet.chain.robinhood.com"
+# AJOUT 28/08/2026 — meme alias que dans rh-factory/foundry.toml, pour que les
+# commandes mainnet s'ecrivent `--rpc-url robinhood_mainnet` ici aussi.
+robinhood_mainnet = "https://rpc.arrowrpc.com"
+# Endpoint officiel, equivalent (utilise pour les verifications cast du 28/08).
+# Garde sous un second alias : si l'un des deux repond mal, on bascule sans
+# retoucher les scripts.
+robinhood_mainnet_official = "https://rpc.mainnet.chain.robinhood.com"
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+
+# Le SMTChecker (bloc ci-dessous) tourne automatiquement à CHAQUE `forge
+# build`/`forge test` quand il est dans [profile.default] — et le moteur CHC
+# est notoirement lent (plusieurs minutes, parfois beaucoup plus, sur un
+# contrat de la taille de RMHT.sol). Déplacé dans un profil séparé
+# `smt` pour ne plus ralentir les builds/tests courants : il ne se lance
+# que si tu le demandes explicitement avec FOUNDRY_PROFILE=smt forge build
+# (voir commande complète plus bas).
+[profile.smt]
+src = "src"
+out = "out"
+libs = ["lib"]
+via_ir = true
+optimizer = true
+optimizer_runs = 200
+solc = "0.8.36"
+evm_version = "osaka"  # cf. commentaire dans [profile.default]
+
+[profile.smt.model_checker]
+contracts = { "src/RMHT.sol" = ["RMHT"], "src/RMHTLiquidityCustodian.sol" = ["RMHTLiquidityCustodian"] }
+engine = "chc"
+targets = ["assert", "outOfBounds", "underflow", "overflow", "divByZero"]
+timeout = 20000
+# "default" cherche les erreurs sans invariants supplémentaires. Si le
+# SMTChecker renvoie surtout "unknown" (fréquent sur des contrats de cette
+# taille), c'est une limite connue de l'outil, pas un signal d'alerte —
+# passe à `engine = "bmc"` (plus rapide, borné) pour au moins un premier
+# passage exploitable.

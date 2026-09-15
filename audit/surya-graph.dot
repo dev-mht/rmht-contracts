@@ -1,0 +1,699 @@
+digraph G {
+  graph [ ratio = "auto", page = "100", compound =true ];
+subgraph "clusterIUniswapV3PoolObservable" {
+  graph [ label = "IUniswapV3PoolObservable  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "IUniswapV3PoolObservable.observe" [ label = "observe", color = "blue" ];
+  "IUniswapV3PoolObservable.observations" [ label = "observations", color = "blue" ];
+  "IUniswapV3PoolObservable.slot0" [ label = "slot0", color = "blue" ];
+}
+
+subgraph "clusterUniswapV3TWAP" {
+  graph [ label = "UniswapV3TWAP  (lib)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "UniswapV3TWAP.getSqrtRatioAtTick" [ label = "getSqrtRatioAtTick", color = "white" ];
+  "UniswapV3TWAP.consult" [ label = "consult" ];
+  "UniswapV3TWAP.getOldestObservationSecondsAgo" [ label = "getOldestObservationSecondsAgo" ];
+  "UniswapV3TWAP.type" [ label = "type" ];
+}
+
+subgraph "clusterIERC20" {
+  graph [ label = "IERC20  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "IERC20.transfer" [ label = "transfer", color = "blue" ];
+  "IERC20.balanceOf" [ label = "balanceOf", color = "blue" ];
+  "IERC20.totalSupply" [ label = "totalSupply", color = "blue" ];
+  "IERC20.allowance" [ label = "allowance", color = "blue" ];
+  "IERC20.approve" [ label = "approve", color = "blue" ];
+  "IERC20.transferFrom" [ label = "transferFrom", color = "blue" ];
+}
+
+subgraph "clusterIRMHTRewards" {
+  graph [ label = "IRMHTRewards  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "IRMHTRewards.claimRewards" [ label = "claimRewards", color = "blue" ];
+  "IRMHTRewards.pendingRewardsOf" [ label = "pendingRewardsOf", color = "blue" ];
+  "IRMHTRewards.milestonesReached" [ label = "milestonesReached", color = "blue" ];
+}
+
+subgraph "clusterContext" {
+  graph [ label = "Context", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "Context._msgSender" [ label = "_msgSender", color = "white" ];
+}
+
+subgraph "clusterOwnable2Step" {
+  graph [ label = "Ownable2Step", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "Ownable2Step.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "Ownable2Step.onlyOwner" [ label = "onlyOwner", color = "yellow" ];
+  "Ownable2Step.owner" [ label = "owner", color = "green" ];
+  "Ownable2Step.pendingOwner" [ label = "pendingOwner", color = "green" ];
+  "Ownable2Step.renounceOwnership" [ label = "renounceOwnership", color = "green" ];
+  "Ownable2Step.transferOwnership" [ label = "transferOwnership", color = "green" ];
+  "Ownable2Step.acceptOwnership" [ label = "acceptOwnership", color = "green" ];
+  "Ownable2Step._transferOwnership" [ label = "_transferOwnership", color = "white" ];
+  "Ownable2Step.address" [ label = "address" ];
+  "Ownable2Step._msgSender" [ label = "_msgSender" ];
+  "Ownable2Step.OwnableUnauthorizedAccount" [ color = "brown2", shape =box ];
+}
+
+subgraph "clusterReentrancyGuard" {
+  graph [ label = "ReentrancyGuard", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "ReentrancyGuard.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "ReentrancyGuard.nonReentrant" [ label = "nonReentrant", color = "yellow" ];
+  "ReentrancyGuard.ReentrancyGuardInitialized" [ style = "dotted" ];
+  "ReentrancyGuard.ReentrancyGuardReentrantCall" [ color = "brown2", shape =box ];
+}
+
+subgraph "clusterRMHTFounderCustodian" {
+  graph [ label = "RMHTFounderCustodian", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "RMHTFounderCustodian.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "RMHTFounderCustodian.setRmhtToken" [ label = "setRmhtToken", color = "blue" ];
+  "RMHTFounderCustodian.unlockedAmount" [ label = "unlockedAmount" ];
+  "RMHTFounderCustodian.claimableNow" [ label = "claimableNow", color = "blue" ];
+  "RMHTFounderCustodian.claim" [ label = "claim", color = "blue" ];
+  "RMHTFounderCustodian.harvestVaultRewards" [ label = "harvestVaultRewards", color = "blue" ];
+  "RMHTFounderCustodian.claimableRewardsNow" [ label = "claimableRewardsNow", color = "blue" ];
+  "RMHTFounderCustodian.claimReward" [ label = "claimReward", color = "blue" ];
+  "RMHTFounderCustodian.rescueEth" [ label = "rescueEth", color = "blue" ];
+  "RMHTFounderCustodian.<Receive Ether>" [ label = "<Receive Ether>", color = "blue" ];
+  "RMHTFounderCustodian.UnlockTimeMustBeFuture" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.RmhtAlreadySet" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.TokenNotContract" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.NotBeneficiary" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.RmhtNotSetYet" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.NothingToClaim" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.TransferFailed" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.NothingToClaimReward" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.NothingToRescue" [ color = "brown2", shape =box ];
+  "RMHTFounderCustodian.EthTransferFailed" [ color = "brown2", shape =box ];
+}
+
+subgraph "clusterRMHTAirdropCustodian" {
+  graph [ label = "RMHTAirdropCustodian", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "RMHTAirdropCustodian.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "RMHTAirdropCustodian.setRmhtToken" [ label = "setRmhtToken", color = "blue" ];
+  "RMHTAirdropCustodian.setUnlockTime" [ label = "setUnlockTime", color = "blue" ];
+  "RMHTAirdropCustodian.setAllocations" [ label = "setAllocations", color = "blue" ];
+  "RMHTAirdropCustodian.claim" [ label = "claim", color = "blue" ];
+  "RMHTAirdropCustodian._updateCustodianReward" [ label = "_updateCustodianReward" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" [ label = "harvestVaultRewards", color = "blue" ];
+  "RMHTAirdropCustodian.claimReward" [ label = "claimReward", color = "blue" ];
+  "RMHTAirdropCustodian.pendingRewardOf" [ label = "pendingRewardOf", color = "blue" ];
+  "RMHTAirdropCustodian.rescueEth" [ label = "rescueEth", color = "blue" ];
+  "RMHTAirdropCustodian.<Receive Ether>" [ label = "<Receive Ether>", color = "blue" ];
+  "RMHTAirdropCustodian.RmhtAlreadySet" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.TokenNotContract" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.RmhtNotSetYet" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.UnlockTimeAlreadySet" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.UnlockTimeMustBeFuture" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.AllocationAlreadySet" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.ExceedsAvailableBalance" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.NotUnlockedYet" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.AlreadyClaimed" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.NothingToClaim" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.TransferFailed" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.NothingToClaimReward" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.NothingToRescue" [ color = "brown2", shape =box ];
+  "RMHTAirdropCustodian.EthTransferFailed" [ color = "brown2", shape =box ];
+}
+
+subgraph "clusterINonfungiblePositionManager" {
+  graph [ label = "INonfungiblePositionManager  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "INonfungiblePositionManager.collect" [ label = "collect" ];
+  "INonfungiblePositionManager.positions" [ label = "positions" ];
+  "INonfungiblePositionManager.CollectParams" [ label = "CollectParams" ];
+}
+
+subgraph "clusterIERC721Receiver" {
+  graph [ label = "IERC721Receiver  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "IERC721Receiver.onERC721Received" [ label = "onERC721Received", color = "blue" ];
+}
+
+subgraph "clusterOwnable2" {
+  graph [ label = "Ownable2", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "Ownable2.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "Ownable2.onlyOwner" [ label = "onlyOwner", color = "yellow" ];
+  "Ownable2.owner" [ label = "owner", color = "green" ];
+  "Ownable2.pendingOwner" [ label = "pendingOwner", color = "green" ];
+  "Ownable2.renounceOwnership" [ label = "renounceOwnership", color = "green" ];
+  "Ownable2.transferOwnership" [ label = "transferOwnership", color = "green" ];
+  "Ownable2.acceptOwnership" [ label = "acceptOwnership", color = "green" ];
+  "Ownable2.address" [ label = "address" ];
+  "Ownable2.OwnableInvalidOwner" [ color = "brown2", shape =box ];
+  "Ownable2.OwnableUnauthorizedAccount" [ color = "brown2", shape =box ];
+}
+
+subgraph "clusterRMHTLiquidityCustodian" {
+  graph [ label = "RMHTLiquidityCustodian", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "RMHTLiquidityCustodian.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "RMHTLiquidityCustodian.onERC721Received" [ label = "onERC721Received", color = "blue" ];
+  "RMHTLiquidityCustodian.nonReentrant" [ label = "nonReentrant", color = "yellow" ];
+  "RMHTLiquidityCustodian.collect" [ label = "collect", color = "blue" ];
+  "RMHTLiquidityCustodian.setFeeRecipient" [ label = "setFeeRecipient", color = "blue" ];
+  "RMHTLiquidityCustodian.currentLiquidity" [ label = "currentLiquidity", color = "blue" ];
+  "RMHTLiquidityCustodian.type" [ label = "type" ];
+}
+
+subgraph "clusterIERC20Metadata" {
+  graph [ label = "IERC20Metadata  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "IERC20Metadata.name" [ label = "name", color = "blue" ];
+  "IERC20Metadata.symbol" [ label = "symbol", color = "blue" ];
+  "IERC20Metadata.decimals" [ label = "decimals", color = "blue" ];
+}
+
+subgraph "clusterIERC20Errors" {
+  graph [ label = "IERC20Errors  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+}
+
+subgraph "clusterERC20" {
+  graph [ label = "ERC20", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "ERC20.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "ERC20.name" [ label = "name", color = "green" ];
+  "ERC20.symbol" [ label = "symbol", color = "green" ];
+  "ERC20.decimals" [ label = "decimals", color = "green" ];
+  "ERC20.totalSupply" [ label = "totalSupply", color = "green" ];
+  "IERC20.balanceOf" [ label = "balanceOf", color = "green" ];
+  "IERC20.transfer" [ label = "transfer", color = "green" ];
+  "ERC20.allowance" [ label = "allowance" ];
+  "ERC20.approve" [ label = "approve", color = "green" ];
+  "ERC20.increaseAllowance" [ label = "increaseAllowance", color = "green" ];
+  "ERC20.decreaseAllowance" [ label = "decreaseAllowance", color = "green" ];
+  "ERC20.transferFrom" [ label = "transferFrom", color = "green" ];
+  "ERC20._transfer" [ label = "_transfer" ];
+  "ERC20._update" [ label = "_update" ];
+  "ERC20._mint" [ label = "_mint", color = "white" ];
+  "ERC20._approve" [ label = "_approve" ];
+  "ERC20._spendAllowance" [ label = "_spendAllowance" ];
+  "ERC20._msgSender" [ label = "_msgSender" ];
+  "ERC20.ERC20InsufficientAllowance" [ color = "brown2", shape =box ];
+  "ERC20.address" [ label = "address" ];
+  "ERC20.ERC20InvalidSender" [ color = "brown2", shape =box ];
+  "ERC20.ERC20InvalidReceiver" [ color = "brown2", shape =box ];
+  "ERC20.ERC20InsufficientBalance" [ color = "brown2", shape =box ];
+  "ERC20.ERC20InvalidApprover" [ color = "brown2", shape =box ];
+  "ERC20.ERC20InvalidSpender" [ color = "brown2", shape =box ];
+  "ERC20.type" [ label = "type" ];
+}
+
+subgraph "clusterOwnable" {
+  graph [ label = "Ownable", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "Ownable.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "Ownable.onlyOwner" [ label = "onlyOwner", color = "yellow" ];
+  "Ownable.owner" [ label = "owner" ];
+  "Ownable.pendingOwner" [ label = "pendingOwner" ];
+  "Ownable.renounceOwnership" [ label = "renounceOwnership", color = "green" ];
+  "Ownable.transferOwnership" [ label = "transferOwnership", color = "green" ];
+  "Ownable.acceptOwnership" [ label = "acceptOwnership", color = "green" ];
+  "Ownable._transferOwnership" [ label = "_transferOwnership" ];
+  "Ownable.address" [ label = "address" ];
+  "Ownable.OwnableInvalidOwner" [ color = "brown2", shape =box ];
+  "Ownable._msgSender" [ label = "_msgSender" ];
+  "Ownable.OwnableUnauthorizedAccount" [ color = "brown2", shape =box ];
+}
+
+subgraph "clusterAggregatorV3Interface" {
+  graph [ label = "AggregatorV3Interface  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "AggregatorV3Interface.decimals" [ label = "decimals" ];
+  "AggregatorV3Interface.latestRoundData" [ label = "latestRoundData" ];
+}
+
+subgraph "clusterIUniswapV3PoolMinimal" {
+  graph [ label = "IUniswapV3PoolMinimal  (iface)", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "IUniswapV3PoolMinimal.token0" [ label = "token0", color = "blue" ];
+  "IUniswapV3PoolMinimal.token1" [ label = "token1", color = "blue" ];
+  "IUniswapV3PoolMinimal.slot0" [ label = "slot0", color = "blue" ];
+}
+
+subgraph "clusterRMHT" {
+  graph [ label = "RMHT", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "RMHT.<Constructor>" [ label = "<Constructor>", color = "green" ];
+  "RMHT.setConfig" [ label = "setConfig", color = "blue" ];
+  "RMHT.lockConfig" [ label = "lockConfig", color = "blue" ];
+  "RMHT.renounceOwnership" [ label = "renounceOwnership", color = "green" ];
+  "RMHT.onlyFeedGovernor" [ label = "onlyFeedGovernor", color = "yellow" ];
+  "RMHT.updatePriceFeeds" [ label = "updatePriceFeeds", color = "blue" ];
+  "RMHT.transferFeedGovernor" [ label = "transferFeedGovernor", color = "blue" ];
+  "RMHT.acceptFeedGovernor" [ label = "acceptFeedGovernor", color = "blue" ];
+  "RMHT.renounceFeedGovernor" [ label = "renounceFeedGovernor", color = "blue" ];
+  "RMHT._requireSequencerUp" [ label = "_requireSequencerUp", color = "white" ];
+  "RMHT.getETHPriceUSD" [ label = "getETHPriceUSD", color = "green" ];
+  "RMHT.twapHistoryAvailable" [ label = "twapHistoryAvailable", color = "green" ];
+  "RMHT.isTwapReady" [ label = "isTwapReady", color = "green" ];
+  "RMHT.getRMHTPriceInETH" [ label = "getRMHTPriceInETH", color = "green" ];
+  "RMHT.getMarketCap" [ label = "getMarketCap", color = "green" ];
+  "RMHT._getEligibleSupply" [ label = "_getEligibleSupply" ];
+  "RMHT.pokeMilestone" [ label = "pokeMilestone", color = "blue" ];
+  "RMHT._pokeMilestone" [ label = "_pokeMilestone" ];
+  "RMHT.milestoneStatus" [ label = "milestoneStatus", color = "blue" ];
+  "RMHT._executeMilestone" [ label = "_executeMilestone" ];
+  "RMHT._updateReward" [ label = "_updateReward", color = "white" ];
+  "RMHT.pendingRewardsOf" [ label = "pendingRewardsOf", color = "blue" ];
+  "RMHT.claimRewards" [ label = "claimRewards", color = "blue" ];
+  "RMHT.excludeFromRewards" [ label = "excludeFromRewards", color = "blue" ];
+  "RMHT._update" [ label = "_update", color = "white" ];
+  "RMHT.rescueTokens" [ label = "rescueTokens", color = "blue" ];
+  "RMHT.getCirculatingSupply" [ label = "getCirculatingSupply", color = "blue" ];
+  "RMHT.getEligibleSupply" [ label = "getEligibleSupply", color = "blue" ];
+  "RMHT.<Receive Ether>" [ label = "<Receive Ether>", color = "blue" ];
+  "RMHT.payable" [ label = "payable" ];
+}
+
+subgraph "clustertoken" {
+  graph [ label = "token", color = "lightgray" ];
+  "token.call" [ label = "call" ];
+}
+
+subgraph "clusterabi" {
+  graph [ label = "abi", color = "lightgray" ];
+  "abi.encodeCall" [ label = "encodeCall" ];
+}
+
+  "UniswapV3TWAP.getSqrtRatioAtTick";
+  "UniswapV3TWAP.type";
+  "Ownable2Step.<Constructor>";
+  "Ownable2Step.address";
+  "Ownable2Step._transferOwnership";
+  "Ownable2Step.onlyOwner";
+  "Ownable2Step.owner";
+  "Ownable2Step._msgSender";
+  "Ownable2Step.OwnableUnauthorizedAccount";
+  "Ownable2Step.renounceOwnership";
+  "Ownable2Step.transferOwnership";
+  "Ownable2Step.acceptOwnership";
+  "ReentrancyGuard.<Constructor>";
+  "ReentrancyGuard.ReentrancyGuardInitialized";
+  "ReentrancyGuard.nonReentrant";
+  "ReentrancyGuard.ReentrancyGuardReentrantCall";
+  "RMHTFounderCustodian.<Constructor>";
+  "RMHTFounderCustodian.UnlockTimeMustBeFuture";
+  "RMHTFounderCustodian.setRmhtToken";
+  "RMHTFounderCustodian.RmhtAlreadySet";
+  "RMHTFounderCustodian.TokenNotContract";
+  "RMHTFounderCustodian.claimableNow";
+  "RMHTFounderCustodian.unlockedAmount";
+  "RMHTFounderCustodian.claim";
+  "RMHTFounderCustodian.NotBeneficiary";
+  "RMHTFounderCustodian.RmhtNotSetYet";
+  "RMHTFounderCustodian.NothingToClaim";
+  "IERC20.transfer";
+  "RMHTFounderCustodian.TransferFailed";
+  "RMHTFounderCustodian.harvestVaultRewards";
+  "IERC20.balanceOf";
+  "RMHTFounderCustodian.claimReward";
+  "RMHTFounderCustodian.NothingToClaimReward";
+  "RMHTFounderCustodian.rescueEth";
+  "RMHTFounderCustodian.NothingToRescue";
+  "RMHTFounderCustodian.EthTransferFailed";
+  "RMHTAirdropCustodian.<Constructor>";
+  "RMHTAirdropCustodian.setRmhtToken";
+  "RMHTAirdropCustodian.RmhtAlreadySet";
+  "RMHTAirdropCustodian.TokenNotContract";
+  "RMHTAirdropCustodian.setUnlockTime";
+  "RMHTAirdropCustodian.RmhtNotSetYet";
+  "RMHTAirdropCustodian.UnlockTimeAlreadySet";
+  "RMHTAirdropCustodian.UnlockTimeMustBeFuture";
+  "RMHTAirdropCustodian.setAllocations";
+  "RMHTAirdropCustodian.AllocationAlreadySet";
+  "RMHTAirdropCustodian.ExceedsAvailableBalance";
+  "RMHTAirdropCustodian.claim";
+  "RMHTAirdropCustodian.NotUnlockedYet";
+  "RMHTAirdropCustodian.AlreadyClaimed";
+  "RMHTAirdropCustodian.NothingToClaim";
+  "RMHTAirdropCustodian._updateCustodianReward";
+  "RMHTAirdropCustodian.TransferFailed";
+  "RMHTAirdropCustodian.harvestVaultRewards";
+  "RMHTAirdropCustodian.claimReward";
+  "RMHTAirdropCustodian.NothingToClaimReward";
+  "RMHTAirdropCustodian.rescueEth";
+  "RMHTAirdropCustodian.NothingToRescue";
+  "RMHTAirdropCustodian.EthTransferFailed";
+  "Ownable2.<Constructor>";
+  "Ownable2.address";
+  "Ownable2.OwnableInvalidOwner";
+  "Ownable2.onlyOwner";
+  "Ownable2.OwnableUnauthorizedAccount";
+  "Ownable2.renounceOwnership";
+  "Ownable2.transferOwnership";
+  "Ownable2.acceptOwnership";
+  "RMHTLiquidityCustodian.<Constructor>";
+  "RMHTLiquidityCustodian.onERC721Received";
+  "RMHTLiquidityCustodian.collect";
+  "INonfungiblePositionManager.collect";
+  "INonfungiblePositionManager.CollectParams";
+  "RMHTLiquidityCustodian.type";
+  "RMHTLiquidityCustodian.setFeeRecipient";
+  "RMHTLiquidityCustodian.currentLiquidity";
+  "INonfungiblePositionManager.positions";
+  "ERC20._transfer";
+  "ERC20._msgSender";
+  "ERC20.approve";
+  "ERC20._approve";
+  "ERC20.increaseAllowance";
+  "ERC20.allowance";
+  "ERC20.decreaseAllowance";
+  "ERC20.ERC20InsufficientAllowance";
+  "ERC20.transferFrom";
+  "ERC20._spendAllowance";
+  "ERC20.address";
+  "ERC20.ERC20InvalidSender";
+  "ERC20.ERC20InvalidReceiver";
+  "ERC20._update";
+  "ERC20.ERC20InsufficientBalance";
+  "ERC20._mint";
+  "ERC20.ERC20InvalidApprover";
+  "ERC20.ERC20InvalidSpender";
+  "ERC20.type";
+  "Ownable.<Constructor>";
+  "Ownable.address";
+  "Ownable.OwnableInvalidOwner";
+  "Ownable._transferOwnership";
+  "Ownable.onlyOwner";
+  "Ownable.owner";
+  "Ownable._msgSender";
+  "Ownable.OwnableUnauthorizedAccount";
+  "Ownable.renounceOwnership";
+  "Ownable.transferOwnership";
+  "Ownable.acceptOwnership";
+  "Ownable.pendingOwner";
+  "RMHT.<Constructor>";
+  "RMHT.setConfig";
+  "RMHT.lockConfig";
+  "RMHT.updatePriceFeeds";
+  "RMHT.transferFeedGovernor";
+  "RMHT.renounceFeedGovernor";
+  "RMHT._requireSequencerUp";
+  "AggregatorV3Interface.latestRoundData";
+  "RMHT.getETHPriceUSD";
+  "AggregatorV3Interface.decimals";
+  "RMHT.twapHistoryAvailable";
+  "UniswapV3TWAP.getOldestObservationSecondsAgo";
+  "RMHT.isTwapReady";
+  "RMHT.getRMHTPriceInETH";
+  "UniswapV3TWAP.consult";
+  "RMHT.getMarketCap";
+  "RMHT._getEligibleSupply";
+  "RMHT.pokeMilestone";
+  "RMHT._pokeMilestone";
+  "RMHT._executeMilestone";
+  "RMHT.milestoneStatus";
+  "RMHT._updateReward";
+  "RMHT.pendingRewardsOf";
+  "RMHT.claimRewards";
+  "RMHT.excludeFromRewards";
+  "RMHT.rescueTokens";
+  "RMHT.payable";
+  "token.call";
+  "abi.encodeCall";
+  "RMHT.getCirculatingSupply";
+  "RMHT.getEligibleSupply";
+  "UniswapV3TWAP.getSqrtRatioAtTick" -> "UniswapV3TWAP.type" [ color = "green" ];
+  "Ownable2Step.<Constructor>" -> "Ownable2Step.address" [ color = "green" ];
+  "Ownable2Step.<Constructor>" -> "Ownable2Step._transferOwnership" [ color = "green" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step.owner" [ color = "green" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step.OwnableUnauthorizedAccount" [ color = "red" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.renounceOwnership" -> "Ownable2Step._transferOwnership" [ color = "green" ];
+  "Ownable2Step.renounceOwnership" -> "Ownable2Step.address" [ color = "green" ];
+  "Ownable2Step.transferOwnership" -> "Ownable2Step.address" [ color = "green" ];
+  "Ownable2Step.transferOwnership" -> "Ownable2Step.owner" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step.OwnableUnauthorizedAccount" [ color = "red" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._transferOwnership" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "ReentrancyGuard.<Constructor>" -> "ReentrancyGuard.ReentrancyGuardInitialized" [ color = "green" ];
+  "ReentrancyGuard.nonReentrant" -> "ReentrancyGuard.ReentrancyGuardReentrantCall" [ color = "red" ];
+  "RMHTFounderCustodian.<Constructor>" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.<Constructor>" -> "RMHTFounderCustodian.UnlockTimeMustBeFuture" [ color = "red" ];
+  "RMHTFounderCustodian.setRmhtToken" -> "RMHTFounderCustodian.RmhtAlreadySet" [ color = "red" ];
+  "RMHTFounderCustodian.setRmhtToken" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.setRmhtToken" -> "RMHTFounderCustodian.TokenNotContract" [ color = "red" ];
+  "RMHTFounderCustodian.claimableNow" -> "RMHTFounderCustodian.unlockedAmount" [ color = "green" ];
+  "RMHTFounderCustodian.claim" -> "RMHTFounderCustodian.NotBeneficiary" [ color = "red" ];
+  "RMHTFounderCustodian.claim" -> "RMHTFounderCustodian.RmhtNotSetYet" [ color = "red" ];
+  "RMHTFounderCustodian.claim" -> "RMHTFounderCustodian.unlockedAmount" [ color = "green" ];
+  "RMHTFounderCustodian.claim" -> "RMHTFounderCustodian.NothingToClaim" [ color = "red" ];
+  "RMHTFounderCustodian.claim" -> "IERC20.transfer" [ color = "orange" ];
+  "RMHTFounderCustodian.claim" -> "RMHTFounderCustodian.TransferFailed" [ color = "red" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "RMHTFounderCustodian.RmhtNotSetYet" [ color = "red" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "IERC20.balanceOf" [ color = "orange" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "IERC20.balanceOf" [ color = "orange" ];
+  "RMHTFounderCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.claimReward" -> "RMHTFounderCustodian.NotBeneficiary" [ color = "red" ];
+  "RMHTFounderCustodian.claimReward" -> "RMHTFounderCustodian.NothingToClaimReward" [ color = "red" ];
+  "RMHTFounderCustodian.claimReward" -> "IERC20.transfer" [ color = "orange" ];
+  "RMHTFounderCustodian.claimReward" -> "RMHTFounderCustodian.TransferFailed" [ color = "red" ];
+  "RMHTFounderCustodian.rescueEth" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.rescueEth" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTFounderCustodian.rescueEth" -> "RMHTFounderCustodian.NothingToRescue" [ color = "red" ];
+  "RMHTFounderCustodian.rescueEth" -> "RMHTFounderCustodian.EthTransferFailed" [ color = "red" ];
+  "Ownable2Step.<Constructor>" -> "Ownable2Step.address" [ color = "green" ];
+  "Ownable2Step.<Constructor>" -> "Ownable2Step._transferOwnership" [ color = "green" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step.owner" [ color = "green" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step.OwnableUnauthorizedAccount" [ color = "red" ];
+  "Ownable2Step.onlyOwner" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.renounceOwnership" -> "Ownable2Step._transferOwnership" [ color = "green" ];
+  "Ownable2Step.renounceOwnership" -> "Ownable2Step.address" [ color = "green" ];
+  "Ownable2Step.transferOwnership" -> "Ownable2Step.address" [ color = "green" ];
+  "Ownable2Step.transferOwnership" -> "Ownable2Step.owner" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step.OwnableUnauthorizedAccount" [ color = "red" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._transferOwnership" [ color = "green" ];
+  "Ownable2Step.acceptOwnership" -> "Ownable2Step._msgSender" [ color = "green" ];
+  "ReentrancyGuard.<Constructor>" -> "ReentrancyGuard.ReentrancyGuardInitialized" [ color = "green" ];
+  "ReentrancyGuard.nonReentrant" -> "ReentrancyGuard.ReentrancyGuardReentrantCall" [ color = "red" ];
+  "RMHTAirdropCustodian.<Constructor>" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.setRmhtToken" -> "RMHTAirdropCustodian.RmhtAlreadySet" [ color = "red" ];
+  "RMHTAirdropCustodian.setRmhtToken" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.setRmhtToken" -> "RMHTAirdropCustodian.TokenNotContract" [ color = "red" ];
+  "RMHTAirdropCustodian.setUnlockTime" -> "RMHTAirdropCustodian.RmhtNotSetYet" [ color = "red" ];
+  "RMHTAirdropCustodian.setUnlockTime" -> "RMHTAirdropCustodian.UnlockTimeAlreadySet" [ color = "red" ];
+  "RMHTAirdropCustodian.setUnlockTime" -> "RMHTAirdropCustodian.UnlockTimeMustBeFuture" [ color = "red" ];
+  "RMHTAirdropCustodian.setAllocations" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.setAllocations" -> "RMHTAirdropCustodian.AllocationAlreadySet" [ color = "red" ];
+  "RMHTAirdropCustodian.setAllocations" -> "IERC20.balanceOf" [ color = "orange" ];
+  "RMHTAirdropCustodian.setAllocations" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.setAllocations" -> "RMHTAirdropCustodian.ExceedsAvailableBalance" [ color = "red" ];
+  "RMHTAirdropCustodian.claim" -> "RMHTAirdropCustodian.RmhtNotSetYet" [ color = "red" ];
+  "RMHTAirdropCustodian.claim" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.claim" -> "RMHTAirdropCustodian.NotUnlockedYet" [ color = "red" ];
+  "RMHTAirdropCustodian.claim" -> "RMHTAirdropCustodian.AlreadyClaimed" [ color = "red" ];
+  "RMHTAirdropCustodian.claim" -> "RMHTAirdropCustodian.NothingToClaim" [ color = "red" ];
+  "RMHTAirdropCustodian.claim" -> "RMHTAirdropCustodian._updateCustodianReward" [ color = "green" ];
+  "RMHTAirdropCustodian.claim" -> "IERC20.transfer" [ color = "orange" ];
+  "RMHTAirdropCustodian.claim" -> "RMHTAirdropCustodian.TransferFailed" [ color = "red" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "RMHTAirdropCustodian.RmhtNotSetYet" [ color = "red" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "IERC20.balanceOf" [ color = "orange" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "IERC20.balanceOf" [ color = "orange" ];
+  "RMHTAirdropCustodian.harvestVaultRewards" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.claimReward" -> "RMHTAirdropCustodian._updateCustodianReward" [ color = "green" ];
+  "RMHTAirdropCustodian.claimReward" -> "RMHTAirdropCustodian.NothingToClaimReward" [ color = "red" ];
+  "RMHTAirdropCustodian.claimReward" -> "IERC20.transfer" [ color = "orange" ];
+  "RMHTAirdropCustodian.claimReward" -> "RMHTAirdropCustodian.TransferFailed" [ color = "red" ];
+  "RMHTAirdropCustodian.rescueEth" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.rescueEth" -> "Ownable2Step.address" [ color = "green" ];
+  "RMHTAirdropCustodian.rescueEth" -> "RMHTAirdropCustodian.NothingToRescue" [ color = "red" ];
+  "RMHTAirdropCustodian.rescueEth" -> "RMHTAirdropCustodian.EthTransferFailed" [ color = "red" ];
+  "Ownable2.<Constructor>" -> "Ownable2.address" [ color = "green" ];
+  "Ownable2.<Constructor>" -> "Ownable2.OwnableInvalidOwner" [ color = "red" ];
+  "Ownable2.<Constructor>" -> "Ownable2.address" [ color = "green" ];
+  "Ownable2.<Constructor>" -> "Ownable2.address" [ color = "green" ];
+  "Ownable2.onlyOwner" -> "Ownable2.OwnableUnauthorizedAccount" [ color = "red" ];
+  "Ownable2.renounceOwnership" -> "Ownable2.address" [ color = "green" ];
+  "Ownable2.renounceOwnership" -> "Ownable2.address" [ color = "green" ];
+  "Ownable2.transferOwnership" -> "Ownable2.address" [ color = "green" ];
+  "Ownable2.transferOwnership" -> "Ownable2.OwnableInvalidOwner" [ color = "red" ];
+  "Ownable2.transferOwnership" -> "Ownable2.address" [ color = "green" ];
+  "Ownable2.acceptOwnership" -> "Ownable2.OwnableUnauthorizedAccount" [ color = "red" ];
+  "RMHTLiquidityCustodian.<Constructor>" -> "Ownable2.address" [ color = "green" ];
+  "RMHTLiquidityCustodian.<Constructor>" -> "Ownable2.address" [ color = "green" ];
+  "RMHTLiquidityCustodian.<Constructor>" -> "Ownable2.address" [ color = "green" ];
+  "RMHTLiquidityCustodian.onERC721Received" -> "Ownable2.address" [ color = "green" ];
+  "RMHTLiquidityCustodian.collect" -> "INonfungiblePositionManager.collect" [ color = "orange" ];
+  "RMHTLiquidityCustodian.collect" -> "INonfungiblePositionManager.CollectParams" [ color = "orange" ];
+  "RMHTLiquidityCustodian.collect" -> "RMHTLiquidityCustodian.type" [ color = "green" ];
+  "RMHTLiquidityCustodian.collect" -> "RMHTLiquidityCustodian.type" [ color = "green" ];
+  "RMHTLiquidityCustodian.setFeeRecipient" -> "Ownable2.address" [ color = "green" ];
+  "RMHTLiquidityCustodian.currentLiquidity" -> "INonfungiblePositionManager.positions" [ color = "orange" ];
+  "IERC20.transfer" -> "ERC20._transfer" [ color = "green" ];
+  "IERC20.transfer" -> "ERC20._msgSender" [ color = "green" ];
+  "ERC20.approve" -> "ERC20._approve" [ color = "green" ];
+  "ERC20.approve" -> "ERC20._msgSender" [ color = "green" ];
+  "ERC20.increaseAllowance" -> "ERC20._msgSender" [ color = "green" ];
+  "ERC20.increaseAllowance" -> "ERC20._approve" [ color = "green" ];
+  "ERC20.increaseAllowance" -> "ERC20.allowance" [ color = "green" ];
+  "ERC20.decreaseAllowance" -> "ERC20._msgSender" [ color = "green" ];
+  "ERC20.decreaseAllowance" -> "ERC20.allowance" [ color = "green" ];
+  "ERC20.decreaseAllowance" -> "ERC20.ERC20InsufficientAllowance" [ color = "red" ];
+  "ERC20.decreaseAllowance" -> "ERC20._approve" [ color = "green" ];
+  "ERC20.transferFrom" -> "ERC20._spendAllowance" [ color = "green" ];
+  "ERC20.transferFrom" -> "ERC20._msgSender" [ color = "green" ];
+  "ERC20.transferFrom" -> "ERC20._transfer" [ color = "green" ];
+  "ERC20._transfer" -> "ERC20.address" [ color = "green" ];
+  "ERC20._transfer" -> "ERC20.ERC20InvalidSender" [ color = "red" ];
+  "ERC20._transfer" -> "ERC20.address" [ color = "green" ];
+  "ERC20._transfer" -> "ERC20.address" [ color = "green" ];
+  "ERC20._transfer" -> "ERC20.ERC20InvalidReceiver" [ color = "red" ];
+  "ERC20._transfer" -> "ERC20.address" [ color = "green" ];
+  "ERC20._transfer" -> "ERC20._update" [ color = "green" ];
+  "ERC20._update" -> "ERC20.address" [ color = "green" ];
+  "ERC20._update" -> "ERC20.ERC20InsufficientBalance" [ color = "red" ];
+  "ERC20._update" -> "ERC20.address" [ color = "green" ];
+  "ERC20._mint" -> "ERC20.address" [ color = "green" ];
+  "ERC20._mint" -> "ERC20.ERC20InvalidReceiver" [ color = "red" ];
+  "ERC20._mint" -> "ERC20.address" [ color = "green" ];
+  "ERC20._mint" -> "ERC20._update" [ color = "green" ];
+  "ERC20._mint" -> "ERC20.address" [ color = "green" ];
+  "ERC20._approve" -> "ERC20._approve" [ color = "green" ];
+  "ERC20._approve" -> "ERC20.address" [ color = "green" ];
+  "ERC20._approve" -> "ERC20.ERC20InvalidApprover" [ color = "red" ];
+  "ERC20._approve" -> "ERC20.address" [ color = "green" ];
+  "ERC20._approve" -> "ERC20.address" [ color = "green" ];
+  "ERC20._approve" -> "ERC20.ERC20InvalidSpender" [ color = "red" ];
+  "ERC20._approve" -> "ERC20.address" [ color = "green" ];
+  "ERC20._spendAllowance" -> "ERC20.allowance" [ color = "green" ];
+  "ERC20._spendAllowance" -> "ERC20.type" [ color = "green" ];
+  "ERC20._spendAllowance" -> "ERC20.ERC20InsufficientAllowance" [ color = "red" ];
+  "ERC20._spendAllowance" -> "ERC20._approve" [ color = "green" ];
+  "Ownable.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "Ownable.<Constructor>" -> "Ownable.OwnableInvalidOwner" [ color = "red" ];
+  "Ownable.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "Ownable.<Constructor>" -> "Ownable._transferOwnership" [ color = "green" ];
+  "Ownable.onlyOwner" -> "Ownable.owner" [ color = "green" ];
+  "Ownable.onlyOwner" -> "Ownable._msgSender" [ color = "green" ];
+  "Ownable.onlyOwner" -> "Ownable.OwnableUnauthorizedAccount" [ color = "red" ];
+  "Ownable.onlyOwner" -> "Ownable._msgSender" [ color = "green" ];
+  "Ownable.renounceOwnership" -> "Ownable._transferOwnership" [ color = "green" ];
+  "Ownable.renounceOwnership" -> "Ownable.address" [ color = "green" ];
+  "Ownable.transferOwnership" -> "Ownable.address" [ color = "green" ];
+  "Ownable.transferOwnership" -> "Ownable.OwnableInvalidOwner" [ color = "red" ];
+  "Ownable.transferOwnership" -> "Ownable.address" [ color = "green" ];
+  "Ownable.transferOwnership" -> "Ownable.owner" [ color = "green" ];
+  "Ownable.acceptOwnership" -> "Ownable._msgSender" [ color = "green" ];
+  "Ownable.acceptOwnership" -> "Ownable.pendingOwner" [ color = "green" ];
+  "Ownable.acceptOwnership" -> "Ownable.OwnableUnauthorizedAccount" [ color = "red" ];
+  "Ownable.acceptOwnership" -> "Ownable._transferOwnership" [ color = "green" ];
+  "ReentrancyGuard.nonReentrant" -> "ReentrancyGuard.ReentrancyGuardReentrantCall" [ color = "red" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.<Constructor>" -> "ERC20._mint" [ color = "green" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.<Constructor>" -> "ERC20._mint" [ color = "green" ];
+  "RMHT.<Constructor>" -> "ERC20._mint" [ color = "green" ];
+  "RMHT.<Constructor>" -> "ERC20._mint" [ color = "green" ];
+  "RMHT.<Constructor>" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT.<Constructor>" -> "Ownable.address" [ color = "green" ];
+  "RMHT.setConfig" -> "Ownable.address" [ color = "green" ];
+  "RMHT.setConfig" -> "Ownable.address" [ color = "green" ];
+  "RMHT.setConfig" -> "Ownable.address" [ color = "green" ];
+  "RMHT.lockConfig" -> "Ownable.address" [ color = "green" ];
+  "Ownable.renounceOwnership" -> "Ownable.renounceOwnership" [ color = "orange" ];
+  "RMHT.updatePriceFeeds" -> "Ownable.address" [ color = "green" ];
+  "RMHT.updatePriceFeeds" -> "Ownable.address" [ color = "green" ];
+  "RMHT.updatePriceFeeds" -> "Ownable.address" [ color = "green" ];
+  "RMHT.transferFeedGovernor" -> "Ownable.address" [ color = "green" ];
+  "RMHT.renounceFeedGovernor" -> "Ownable.address" [ color = "green" ];
+  "RMHT.renounceFeedGovernor" -> "Ownable.address" [ color = "green" ];
+  "RMHT._requireSequencerUp" -> "Ownable.address" [ color = "green" ];
+  "RMHT._requireSequencerUp" -> "Ownable.address" [ color = "green" ];
+  "RMHT._requireSequencerUp" -> "AggregatorV3Interface.latestRoundData" [ color = "orange" ];
+  "RMHT.getETHPriceUSD" -> "RMHT._requireSequencerUp" [ color = "green" ];
+  "RMHT.getETHPriceUSD" -> "AggregatorV3Interface.latestRoundData" [ color = "orange" ];
+  "RMHT.getETHPriceUSD" -> "AggregatorV3Interface.decimals" [ color = "orange" ];
+  "RMHT.twapHistoryAvailable" -> "Ownable.address" [ color = "green" ];
+  "RMHT.twapHistoryAvailable" -> "UniswapV3TWAP.getOldestObservationSecondsAgo" [ color = "orange" ];
+  "RMHT.isTwapReady" -> "RMHT.twapHistoryAvailable" [ color = "green" ];
+  "RMHT.getRMHTPriceInETH" -> "Ownable.address" [ color = "green" ];
+  "RMHT.getRMHTPriceInETH" -> "UniswapV3TWAP.getOldestObservationSecondsAgo" [ color = "orange" ];
+  "RMHT.getRMHTPriceInETH" -> "UniswapV3TWAP.consult" [ color = "orange" ];
+  "RMHT.getRMHTPriceInETH" -> "UniswapV3TWAP.getSqrtRatioAtTick" [ color = "orange" ];
+  "RMHT.getMarketCap" -> "RMHT._getEligibleSupply" [ color = "green" ];
+  "RMHT.getMarketCap" -> "RMHT.getRMHTPriceInETH" [ color = "green" ];
+  "RMHT.getMarketCap" -> "RMHT.getETHPriceUSD" [ color = "green" ];
+  "RMHT._getEligibleSupply" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT._getEligibleSupply" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT._getEligibleSupply" -> "Ownable.address" [ color = "green" ];
+  "RMHT._getEligibleSupply" -> "Ownable.address" [ color = "green" ];
+  "RMHT._getEligibleSupply" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT.pokeMilestone" -> "RMHT._pokeMilestone" [ color = "green" ];
+  "RMHT._pokeMilestone" -> "Ownable.address" [ color = "green" ];
+  "RMHT._pokeMilestone" -> "RMHT.isTwapReady" [ color = "green" ];
+  "RMHT._pokeMilestone" -> "RMHT.getMarketCap" [ color = "green" ];
+  "RMHT._pokeMilestone" -> "RMHT._executeMilestone" [ color = "green" ];
+  "RMHT.milestoneStatus" -> "RMHT.getMarketCap" [ color = "green" ];
+  "RMHT._executeMilestone" -> "RMHT._getEligibleSupply" [ color = "green" ];
+  "RMHT._updateReward" -> "Ownable.address" [ color = "green" ];
+  "RMHT._updateReward" -> "Ownable.address" [ color = "green" ];
+  "RMHT._updateReward" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT.pendingRewardsOf" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT.claimRewards" -> "RMHT._updateReward" [ color = "green" ];
+  "RMHT.claimRewards" -> "ERC20._update" [ color = "orange" ];
+  "RMHT.claimRewards" -> "Ownable.address" [ color = "green" ];
+  "RMHT.excludeFromRewards" -> "Ownable.address" [ color = "green" ];
+  "RMHT.excludeFromRewards" -> "Ownable.address" [ color = "green" ];
+  "RMHT.excludeFromRewards" -> "RMHT._updateReward" [ color = "green" ];
+  "ERC20._update" -> "Ownable.address" [ color = "green" ];
+  "ERC20._update" -> "Ownable.address" [ color = "green" ];
+  "ERC20._update" -> "ERC20._update" [ color = "orange" ];
+  "ERC20._update" -> "RMHT._updateReward" [ color = "green" ];
+  "ERC20._update" -> "RMHT._updateReward" [ color = "green" ];
+  "ERC20._update" -> "ERC20._update" [ color = "orange" ];
+  "RMHT.rescueTokens" -> "Ownable.address" [ color = "green" ];
+  "RMHT.rescueTokens" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT.rescueTokens" -> "Ownable.address" [ color = "green" ];
+  "RMHT.rescueTokens" -> "ERC20._update" [ color = "orange" ];
+  "RMHT.rescueTokens" -> "Ownable.address" [ color = "green" ];
+  "RMHT.rescueTokens" -> "Ownable.owner" [ color = "green" ];
+  "RMHT.rescueTokens" -> "Ownable.address" [ color = "green" ];
+  "RMHT.rescueTokens" -> "Ownable.address" [ color = "green" ];
+  "RMHT.rescueTokens" -> "RMHT.payable" [ color = "green" ];
+  "RMHT.rescueTokens" -> "Ownable.owner" [ color = "green" ];
+  "RMHT.rescueTokens" -> "token.call" [ color = "orange" ];
+  "RMHT.rescueTokens" -> "abi.encodeCall" [ color = "orange" ];
+  "RMHT.rescueTokens" -> "Ownable.owner" [ color = "green" ];
+  "RMHT.getCirculatingSupply" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT.getCirculatingSupply" -> "Ownable.address" [ color = "green" ];
+  "RMHT.getCirculatingSupply" -> "IERC20.balanceOf" [ color = "green" ];
+  "RMHT.getEligibleSupply" -> "RMHT._getEligibleSupply" [ color = "green" ];
+
+
+rankdir=LR
+node [shape=plaintext]
+subgraph cluster_01 { 
+label = "Legend";
+key [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td align="right" port="i1">Internal Call</td></tr>
+  <tr><td align="right" port="i2">External Call</td></tr>
+  <tr><td align="right" port="i2">Custom Error Call</td></tr>
+  <tr><td align="right" port="i3">Defined Contract</td></tr>
+  <tr><td align="right" port="i4">Undefined Contract</td></tr>
+  </table>>]
+key2 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td port="i1">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i2">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i3" bgcolor="lightgray">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i4">
+    <table border="1" cellborder="0" cellspacing="0" cellpadding="7" color="lightgray">
+      <tr>
+       <td></td>
+      </tr>
+     </table>
+  </td></tr>
+  </table>>]
+key:i1:e -> key2:i1:w [color="green"]
+key:i2:e -> key2:i2:w [color="orange"]
+key:i2:e -> key2:i2:w [color="red"]
+}
+}
+

@@ -1,0 +1,41 @@
+digraph G {
+  graph [ ratio = "auto", page = "40" ];
+  "IUniswapV3PoolObservable";
+  "UniswapV3TWAP";
+  "IERC20";
+  "IRMHTRewards";
+  "Context";
+  "Ownable2Step";
+  "ReentrancyGuard";
+  "RMHTFounderCustodian";
+  "RMHTAirdropCustodian";
+  "INonfungiblePositionManager";
+  "IERC721Receiver";
+  "Ownable2";
+  "RMHTLiquidityCustodian";
+  "IERC20Metadata";
+  "IERC20Errors";
+  "ERC20";
+  "Ownable";
+  "AggregatorV3Interface";
+  "IUniswapV3PoolMinimal";
+  "RMHT";
+  "Ownable2Step" -> "Context";
+  "RMHTFounderCustodian" -> "Ownable2Step";
+  "RMHTFounderCustodian" -> "ReentrancyGuard";
+  "Ownable2Step" -> "Context";
+  "RMHTAirdropCustodian" -> "Ownable2Step";
+  "RMHTAirdropCustodian" -> "ReentrancyGuard";
+  "RMHTLiquidityCustodian" -> "Ownable2";
+  "RMHTLiquidityCustodian" -> "IERC721Receiver";
+  "IERC20Metadata" -> "IERC20";
+  "ERC20" -> "Context";
+  "ERC20" -> "IERC20";
+  "ERC20" -> "IERC20Metadata";
+  "ERC20" -> "IERC20Errors";
+  "Ownable" -> "Context";
+  "RMHT" -> "ERC20";
+  "RMHT" -> "Ownable";
+  "RMHT" -> "ReentrancyGuard";
+}
+

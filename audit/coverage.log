@@ -1,0 +1,454 @@
+Warning: `--ir-minimum` enables `viaIR` with minimum optimization, which can result in inaccurate source mappings.
+Only use this flag as a workaround if you are experiencing "stack too deep" errors.
+Note that `viaIR` is production ready since Solidity 0.8.13 and above.
+See more: https://book.getfoundry.sh/guides/best-practices/stack-too-deep
+Compiling 45 files with Solc 0.8.36
+Solc 0.8.36 finished in 13.25s
+Compiler run successful with warnings:
+Warning (2018): Function state mutability can be restricted to view
+  --> test/EvmVersionOsaka.t.sol:77:5:
+   |
+77 |     function _rmhtRuntime() internal returns (bytes memory) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+   --> test/EvmVersionOsaka.t.sol:117:5:
+    |
+117 |     function test_OtherContracts_EmitNoOsakaSpecificOpcode() public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+   --> test/UniswapV3TWAP.t.sol:168:5:
+    |
+168 |     function test_Consult_FlatHistoryReturnsCurrentTick() public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Analysing contracts...
+Running tests...
+
+Ran 7 tests for test/DeployMainnetAllocations.t.sol:DeployMainnetAllocationsTest
+[PASS] test_Allocations_AucunDoublon() (gas: 232897)
+[PASS] test_Allocations_AucuneAdresseNulleNiMontantNul() (gas: 53783)
+[PASS] test_Allocations_FounderAmountCorrespondAuCustodian() (gas: 1626598)
+[PASS] test_Allocations_NombreDAdressesAttendu() (gas: 16541)
+[PASS] test_Allocations_RepartitionBoucleSurTotalSupply() (gas: 7154753)
+[PASS] test_Allocations_SommeEgaleAirdropAmount() (gas: 25258)
+[PASS] test_Allocations_WalletCustodialCredite() (gas: 34914)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 3.78ms (2.52ms CPU time)
+
+Ran 35 tests for test/RMHTLiquidityCustodian.t.sol:RMHTLiquidityCustodianTest
+[PASS] test_AcceptOwnership_RevertsIfNotPending() (gas: 49691)
+[PASS] test_AcceptOwnership_Success() (gas: 62776)
+[PASS] test_Collect_AlwaysPaysFeeRecipient_RegardlessOfCaller() (gas: 144568)
+[PASS] test_Collect_EmitsFeesCollectedEvent() (gas: 138596)
+[PASS] test_Collect_ReentrancyBlocked() (gas: 2148871)
+[PASS] test_Collect_StillWorksForeverAfterRenounce() (gas: 156724)
+[PASS] test_Constructor_SetsImmutableDepositor() (gas: 9145)
+[PASS] test_CurrentLiquidity_ReadsFromPositionManager() (gas: 63920)
+[PASS] test_NoDecreaseLiquiditySelector() (gas: 7419)
+[PASS] test_NoSelfdestructReachable() (gas: 8023)
+[PASS] test_NoTransferOfHeldNFTOut() (gas: 52853)
+[PASS] test_OnERC721Received_DepositorDoesNotFollowOwnershipTransfer() (gas: 85543)
+[PASS] test_OnERC721Received_EmitsPositionReceivedEvent() (gas: 57359)
+[PASS] test_OnERC721Received_LegitimateDepositStillWorksAfterSquatAttempt() (gas: 67845)
+[PASS] test_OnERC721Received_SetsPosition() (gas: 52033)
+[PASS] test_OnERC721Received_StillPossibleAfterRenounce() (gas: 68379)
+[PASS] test_RenounceOwnership_EmitsEvent() (gas: 23116)
+[PASS] test_RenounceOwnership_OnlyOwner() (gas: 17117)
+[PASS] test_RenounceOwnership_RemovesOwnerPowers() (gas: 26301)
+[PASS] test_RevertCollect_NoPosition() (gas: 17398)
+[PASS] test_RevertConstructor_ZeroFeeRecipient() (gas: 71871)
+[PASS] test_RevertConstructor_ZeroOwner() (gas: 45837)
+[PASS] test_RevertConstructor_ZeroPositionManager() (gas: 71521)
+[PASS] test_RevertCurrentLiquidity_NoPosition() (gas: 13078)
+[PASS] test_RevertOnERC721Received_NotPositionManager() (gas: 13653)
+[PASS] test_RevertOnERC721Received_SecondDeposit() (gas: 59806)
+[PASS] test_RevertOnERC721Received_StrangerCannotSquatPosition() (gas: 33652)
+[PASS] test_RevertOnERC721Received_ZeroFrom() (gas: 16770)
+[PASS] test_SetFeeRecipient_EmitsEvent() (gas: 29573)
+[PASS] test_SetFeeRecipient_OnlyOwner() (gas: 17303)
+[PASS] test_SetFeeRecipient_RevertsOnZero() (gas: 18022)
+[PASS] test_SetFeeRecipient_UpdatesAndCollectFollows() (gas: 145768)
+[PASS] test_TransferOwnership_OnlyOwner() (gas: 19852)
+[PASS] test_TransferOwnership_RevertsOnZero() (gas: 17424)
+[PASS] test_TransferOwnership_SetsPendingOwner() (gas: 51725)
+Suite result: ok. 35 passed; 0 failed; 0 skipped; finished in 17.52ms (12.25ms CPU time)
+
+Ran 56 tests for test/RMHTAirdropCustodian.t.sol:RMHTAirdropCustodianTest
+[PASS] test_AcceptOwnership_RevertsIfNotPending() (gas: 50611)
+[PASS] test_AcceptOwnership_Success() (gas: 51559)
+[PASS] test_ClaimReward_AdresseSansAllocation_Revert() (gas: 117071)
+[PASS] test_ClaimReward_AllocationZero_RienARecevoirMemeApresHarvest() (gas: 122645)
+[PASS] test_ClaimReward_AvantToutHarvest_Revert() (gas: 30219)
+[PASS] test_ClaimReward_CalculDeltaParUtilisateurAuProrataDeSonAllocation() (gas: 177190)
+[PASS] test_ClaimReward_EmitEvent() (gas: 157717)
+[PASS] test_ClaimReward_MiseAJourSnapshot_PasDeDoubleClaim() (gas: 163302)
+[PASS] test_ClaimReward_RevertSiRienDeNouveauDepuisLeDernierClaim() (gas: 158765)
+[PASS] test_ClaimReward_RevertSiTransferEchoue() (gas: 146494)
+[PASS] test_Claim_AllocationZero_Revert() (gas: 36465)
+[PASS] test_Claim_AvantUnlockTime_Revert() (gas: 29340)
+[PASS] test_Claim_DeuxFois_Revert() (gas: 96359)
+[PASS] test_Claim_FigeLaPartDeRewardDueAvantDeSortirDuCalculActif() (gas: 189651)
+[PASS] test_Claim_PuisNouveauHarvest_NePlusCrediterUserAyantDejaClaim() (gas: 230129)
+[PASS] test_Claim_RevertSiRmhtPasEncoreRegle() (gas: 2393245)
+[PASS] test_Claim_RevertSiTransferEchoue() (gas: 81245)
+[PASS] test_Claim_SortDuCalculActif_ActiveAllocatedDiminue() (gas: 90029)
+[PASS] test_Claim_UnlockedByMilestone_AvantUnlockTime() (gas: 113718)
+[PASS] test_HarvestVaultRewards_ActiveAllocatedZero_PasDeDivisionParZero() (gas: 173190)
+[PASS] test_HarvestVaultRewards_EmitEvent() (gas: 77449)
+[PASS] test_HarvestVaultRewards_EstPermissionless() (gas: 79683)
+[PASS] test_HarvestVaultRewards_NoOpNeBloquePasLeVerrouReentrance() (gas: 88608)
+[PASS] test_HarvestVaultRewards_NoOpSiRienAAccumulerCotesRmht() (gas: 35852)
+[PASS] test_HarvestVaultRewards_PlusieursAppelsSuccessifsCumulent() (gas: 113798)
+[PASS] test_HarvestVaultRewards_RapatrieDepuisRmhtEtAugmenteBalance() (gas: 77309)
+[PASS] test_HarvestVaultRewards_RevertSiRmhtPasEncoreRegle() (gas: 2389604)
+[PASS] test_HarvestVaultRewards_RewardPerShareAuBonProrata() (gas: 74321)
+[PASS] test_Invariant_SommeRewardsDistribuesNexcedePasTotalHarveste() (gas: 306879)
+[PASS] test_RenounceOwnership_OnlyOwner() (gas: 17842)
+[PASS] test_RenounceOwnership_Success() (gas: 22546)
+[PASS] test_RescueEth_OnlyOwner() (gas: 21956)
+[PASS] test_RescueEth_ReentrancyGuardBlocksReentry() (gas: 476858)
+[PASS] test_RescueEth_RevertsIfNothingToRescue() (gas: 24430)
+[PASS] test_RescueEth_RevertsIfTransferFails() (gas: 76928)
+[PASS] test_RescueEth_RevertsOnZeroAddress() (gas: 23326)
+[PASS] test_RescueEth_Success() (gas: 33746)
+[PASS] test_SetAllocations_OnlyOwner() (gas: 20017)
+[PASS] test_SetAllocations_RevertsIfAlreadySetForUser() (gas: 26366)
+[PASS] test_SetAllocations_RevertsIfExceedsAvailableBalance() (gas: 3147560)
+[PASS] test_SetAllocations_RevertsOnBatchTooLarge() (gas: 192516)
+[PASS] test_SetAllocations_RevertsOnEmptyBatch() (gas: 19697)
+[PASS] test_SetAllocations_RevertsOnLengthMismatch() (gas: 25130)
+[PASS] test_SetAllocations_RevertsOnZeroAddressInBatch() (gas: 22561)
+[PASS] test_SetRmhtToken_OnlyOwner() (gas: 2390913)
+[PASS] test_SetRmhtToken_RevertsIfAlreadySet() (gas: 22211)
+[PASS] test_SetRmhtToken_RevertsIfNotAContract() (gas: 2396050)
+[PASS] test_SetRmhtToken_RevertsOnZeroAddress() (gas: 2393373)
+[PASS] test_SetUnlockTime_OnlyOwner() (gas: 15462)
+[PASS] test_SetUnlockTime_RevertsIfAlreadySet() (gas: 19552)
+[PASS] test_SetUnlockTime_RevertsIfNotFuture() (gas: 2422329)
+[PASS] test_SetUnlockTime_RevertsIfRmhtNotSetYet() (gas: 2391559)
+[PASS] test_SetUp_ActiveAllocatedMatchesNonZeroAllocations() (gas: 13822)
+[PASS] test_TransferOwnership_OnlyOwner() (gas: 18534)
+[PASS] test_TransferOwnership_RevertsOnZero() (gas: 18143)
+[PASS] test_TransferOwnership_SetsPendingOwner() (gas: 48472)
+Suite result: ok. 56 passed; 0 failed; 0 skipped; finished in 23.99ms (20.80ms CPU time)
+
+Ran 13 tests for test/RMHTTwap.t.sol:RMHTTwapTest
+[PASS] test_Attack_InstantPumpThenPoke_DoesNotArmMilestone() (gas: 11243902)
+[PASS] test_FailClosed_PokeIsSilentNoOpWhenHistoryTooShort() (gas: 184436)
+[PASS] test_FailClosed_PriceAcceptsExactlyTheFullWindow() (gas: 201180)
+[PASS] test_FailClosed_PriceRevertsWhenHistoryTooShort() (gas: 170668)
+[PASS] test_IsTwapReady_ReflectsAvailableHistory() (gas: 224409)
+[PASS] test_LockedPoolStillRevertsBeforeReadingObservations() (gas: 155958)
+[PASS] test_MinCardinality_CoversFullWindowAgainstBufferSpam() (gas: 12322)
+[PASS] test_PriceUnchangedAtParity_BothOrientations() (gas: 13568879)
+[PASS] test_Regression_ShortWindowTwapEqualsManipulatedSpot() (gas: 3483764)
+[PASS] test_RevertSetConfig_ObservationCardinalityTooLow() (gas: 121831)
+[PASS] test_SetConfig_AcceptsExactMinimumOnCardinalityNext() (gas: 154171)
+[PASS] test_Twap_MovesProportionallyToTimeHeld() (gas: 838073)
+[PASS] test_Twap_SustainedMoveEventuallyArmsMilestone() (gas: 839203)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 42.64ms (37.04ms CPU time)
+
+Ran 63 tests for test/RMHTFounderCustodian.t.sol:RMHTFounderCustodianTest
+[PASS] testFuzz_UnlockedAmount_IsAStepFunctionOfTime(uint48) (runs: 256, μ: 13966, ~: 13967)
+[PASS] test_AcceptOwnership_Success() (gas: 96047)
+[PASS] test_ClaimReward_EmitEvent() (gas: 134795)
+[PASS] test_ClaimReward_PlusieursPaliersSuccessifs() (gas: 186498)
+[PASS] test_ClaimReward_PossibleAvantUnlockTime() (gas: 153564)
+[PASS] test_ClaimReward_PuisClaimPrincipal() (gas: 177245)
+[PASS] test_Claim_FullAllocationAtUnlockTime() (gas: 93850)
+[PASS] test_Claim_PrincipalIntactMemeAvecRewardsNonReclamees() (gas: 187474)
+[PASS] test_ClaimableNow_ZeroThenFullThenZero() (gas: 89343)
+[PASS] test_Constructor_AcceptsOneSecondInTheFuture() (gas: 1630400)
+[PASS] test_Constructor_EmitsCustodianDeployed() (gas: 1636839)
+[PASS] test_Constructor_EmitsUnlockTimeSet() (gas: 1635461)
+[PASS] test_Constructor_SetsImmutableUnlockTime() (gas: 8958)
+[PASS] test_Constructor_SetsOwnerAndBeneficiary() (gas: 16986)
+[PASS] test_HarvestVaultRewards_AppelsSuccessifsCumulent() (gas: 109206)
+[PASS] test_HarvestVaultRewards_ApresRetraitDuPrincipal() (gas: 175625)
+[PASS] test_HarvestVaultRewards_EmitEvent() (gas: 73562)
+[PASS] test_HarvestVaultRewards_EstPermissionless() (gas: 75598)
+[PASS] test_HarvestVaultRewards_NoOpNeBloquePasLeVerrouReentrance() (gas: 85248)
+[PASS] test_HarvestVaultRewards_NoOpSiRienAAccumuler() (gas: 35455)
+[PASS] test_HarvestVaultRewards_RapatrieDepuisRmht() (gas: 82669)
+[PASS] test_NoSetUnlockTimeFunctionRemains() (gas: 10870)
+[PASS] test_Receive_AcceptsEth() (gas: 14505)
+[PASS] test_RenounceOwnership_ClearsPendingOwner() (gas: 44384)
+[PASS] test_RenounceOwnership_Success() (gas: 38143)
+[PASS] test_RescueEth_ReentrancyGuardBlocksReentry_ViaClaim() (gas: 2797841)
+[PASS] test_RescueEth_ReentrancyGuardBlocksReentry_ViaRescueEth() (gas: 540568)
+[PASS] test_RescueEth_Success() (gas: 36851)
+[PASS] test_RevertAcceptOwnership_NotPendingOwner() (gas: 50473)
+[PASS] test_RevertClaimReward_DeuxiemeAppelSansNouveauHarvest() (gas: 140196)
+[PASS] test_RevertClaimReward_NotBeneficiary() (gas: 80338)
+[PASS] test_RevertClaimReward_RienAReclamer() (gas: 24748)
+[PASS] test_RevertClaimReward_TransferFailed() (gas: 132000)
+[PASS] test_RevertClaim_NotBeneficiary() (gas: 21212)
+[PASS] test_RevertClaim_NothingLeftAfterFullClaim() (gas: 88616)
+[PASS] test_RevertClaim_NothingToClaim() (gas: 24229)
+[PASS] test_RevertClaim_OneSecondBeforeUnlock() (gas: 25871)
+[PASS] test_RevertClaim_RmhtNotSetYet() (gas: 1639214)
+[PASS] test_RevertClaim_TransferFailed() (gas: 80952)
+[PASS] test_RevertConstructor_UnlockTimeExactlyNow() (gas: 97441)
+[PASS] test_RevertConstructor_UnlockTimeInThePast() (gas: 98163)
+[PASS] test_RevertConstructor_ZeroBeneficiary() (gas: 96522)
+[PASS] test_RevertConstructor_ZeroOwner() (gas: 44583)
+[PASS] test_RevertHarvestVaultRewards_RmhtPasEncoreRegle() (gas: 1638896)
+[PASS] test_RevertRenounceOwnership_NotOwner() (gas: 17336)
+[PASS] test_RevertRescueEth_NotOwner() (gas: 22386)
+[PASS] test_RevertRescueEth_NothingToRescue() (gas: 24683)
+[PASS] test_RevertRescueEth_TransferFailed() (gas: 77500)
+[PASS] test_RevertRescueEth_ZeroAddress() (gas: 23441)
+[PASS] test_RevertSetRmhtToken_AlreadySet() (gas: 21107)
+[PASS] test_RevertSetRmhtToken_NotAContract() (gas: 1643582)
+[PASS] test_RevertSetRmhtToken_NotOwner() (gas: 1642406)
+[PASS] test_RevertSetRmhtToken_ZeroAddress() (gas: 1640468)
+[PASS] test_RevertTransferOwnership_NotOwner() (gas: 20948)
+[PASS] test_RevertTransferOwnership_ZeroAddress() (gas: 19155)
+[PASS] test_SetRmhtToken_AlreadySetInSetUp() (gas: 14262)
+[PASS] test_TransferOwnership_StartsPending() (gas: 52022)
+[PASS] test_UnlockedAmount_FullAtExactUnlockTime() (gas: 12764)
+[PASS] test_UnlockedAmount_FullLongAfter() (gas: 12704)
+[PASS] test_UnlockedAmount_IndependentOfRmhtBeingSet() (gas: 1640975)
+[PASS] test_UnlockedAmount_MilestonesHaveNoEffectAnymore() (gas: 43964)
+[PASS] test_UnlockedAmount_ZeroBeforeUnlockTime() (gas: 7306)
+[PASS] test_UnlockedAmount_ZeroOneSecondBefore() (gas: 11578)
+Suite result: ok. 63 passed; 0 failed; 0 skipped; finished in 92.40ms (105.54ms CPU time)
+
+Ran 19 tests for test/UniswapV3TWAP.t.sol:UniswapV3TWAPTest
+[PASS] testFuzz_SqrtRatio_AlwaysFitsUint160(int24) (runs: 256, μ: 17284, ~: 17251)
+[PASS] testFuzz_SqrtRatio_ReciprocalSymmetry(int24) (runs: 256, μ: 29210, ~: 29367)
+[PASS] testFuzz_SqrtRatio_RoundTripThroughTick(int24) (runs: 256, μ: 309643, ~: 309831)
+[PASS] testFuzz_SqrtRatio_StrictlyIncreasing(int24) (runs: 256, μ: 27009, ~: 27214)
+[PASS] test_Consult_FlatHistoryReturnsCurrentTick() (gas: 299917)
+[PASS] test_Consult_RoundsTowardNegativeInfinity() (gas: 3373730)
+[PASS] test_Consult_TimeWeightedAverageOfTwoRegimes() (gas: 3960711)
+[PASS] test_OldestObservation_FallsBackToIndexZeroWhenNotInitialized() (gas: 35315)
+[PASS] test_OldestObservation_FreshPoolReturnsZero() (gas: 33550)
+[PASS] test_OldestObservation_ReportsStoredHistory() (gas: 30068)
+[PASS] test_RevertConsult_WindowLongerThanHistory() (gas: 30482)
+[PASS] test_RevertConsult_ZeroWindow() (gas: 14472)
+[PASS] test_RevertOldestObservation_ZeroCardinality() (gas: 37577)
+[PASS] test_RevertSqrtRatio_AboveMaxTick() (gas: 13061)
+[PASS] test_RevertSqrtRatio_BelowMinTick() (gas: 12937)
+[PASS] test_RevertSqrtRatio_Int24Min() (gas: 12375)
+[PASS] test_SqrtRatio_MatchesHighPrecisionReference() (gas: 173876)
+[PASS] test_SqrtRatio_MatchesPublishedUniswapBounds() (gas: 29686)
+[PASS] test_SqrtRatio_TickZeroIsExactlyQ96() (gas: 9382)
+Suite result: ok. 19 passed; 0 failed; 0 skipped; finished in 2.23s (2.33s CPU time)
+
+Ran 113 tests for test/RMHT.t.sol:RMHTTest
+[PASS] testFuzz_MultipleMilestones_NeverExceedVault(uint8) (runs: 256, μ: 3407533, ~: 2703999)
+[PASS] testFuzz_RewardsProportionalToBalance(uint256,uint256) (runs: 256, μ: 771938, ~: 772384)
+[PASS] testFuzz_TransferNeverExceedsBalance(uint256) (runs: 256, μ: 39634, ~: 39634)
+[PASS] testFuzz_TransferPreservesTotalSupply(uint256) (runs: 256, μ: 66798, ~: 66425)
+[PASS] test_AcceptFeedGovernor_CompletesTransfer() (gas: 1394414)
+[PASS] test_AcceptOwnership_RevertsIfNotPending() (gas: 52719)
+[PASS] test_AcceptOwnership_Success() (gas: 51834)
+[PASS] test_Allowance_DefaultsToZero() (gas: 17979)
+[PASS] test_Approve_SetsAllowanceAndEmits() (gas: 51090)
+[PASS] test_Constructor_DefaultExclusions() (gas: 41448)
+[PASS] test_Constructor_EmitsFeedGovernorTransferredFromZero() (gas: 7163873)
+[PASS] test_Constructor_MintsCorrectAllocations() (gas: 43790)
+[PASS] test_Constructor_SetsFeedGovernor() (gas: 18410)
+[PASS] test_Decimals() (gas: 8096)
+[PASS] test_DecreaseAllowance_Success() (gas: 56074)
+[PASS] test_ExcludeFromRewards_OnlyOwner() (gas: 16163)
+[PASS] test_ExcludeFromRewards_ReincludeResyncsSnapshot() (gas: 759083)
+[PASS] test_FeedGovernor_HasNoOtherPower() (gas: 184744)
+[PASS] test_GetCirculatingSupply_ExcludesContractAndBurnBalances() (gas: 74785)
+[PASS] test_GetETHPrice_AtExactlyHeartbeatStillValid() (gas: 235256)
+[PASS] test_GetETHPrice_RealMainnetFreshnessObserved() (gas: 234770)
+[PASS] test_GetETHPrice_SequencerStartedLongAgoStillWorks() (gas: 194734)
+[PASS] test_GetETHPrice_WorksWithSequencerCheckDisabled() (gas: 862950)
+[PASS] test_GetEligibleSupply_MatchesInternalHelper() (gas: 164401)
+[PASS] test_GetMarketCap_Computation() (gas: 239234)
+[PASS] test_GetRMHTPriceInETH_OneToOne() (gas: 191896)
+[PASS] test_GetRMHTPriceInETH_Token1Orientation() (gas: 3219866)
+[PASS] test_IncreaseAllowance() (gas: 57079)
+[PASS] test_MilestoneStatus_BeforeAnyMilestone() (gas: 257308)
+[PASS] test_MilestoneStatus_WhileArmed() (gas: 462787)
+[PASS] test_MinTickPrice_Token1Orientation_NeverDividesByZero() (gas: 2972309)
+[PASS] test_Name() (gas: 16131)
+[PASS] test_PendingRewardsOf_ReturnsZeroForExcludedAccount() (gas: 46501)
+[PASS] test_PokeMilestone_ArmsWhenThresholdReached() (gas: 395548)
+[PASS] test_PokeMilestone_CooldownActive_StaysArmedUntilCooldownClears() (gas: 993980)
+[PASS] test_PokeMilestone_DisarmsIfPriceDropsBeforeConfirmation() (gas: 787409)
+[PASS] test_PokeMilestone_NoOpIfBelowThreshold() (gas: 610742)
+[PASS] test_PokeMilestone_NoOpIfPoolLockedMidSwap() (gas: 170183)
+[PASS] test_PokeMilestone_NoOpIfPoolNotSet() (gas: 19207)
+[PASS] test_PokeMilestone_NoOpIfTooSoonSinceLastConfirmation() (gas: 485315)
+[PASS] test_PokeMilestone_ReleasesCorrectAmountAndAdvancesMilestone() (gas: 670371)
+[PASS] test_PokeMilestone_RequiresAllConfirmationsBeforeExecuting() (gas: 497282)
+[PASS] test_PokeMilestone_SafetyNet_ExpiresAfterConfirmWindow() (gas: 452347)
+[PASS] test_PokeMilestone_WorksAfterCooldown() (gas: 968044)
+[PASS] test_RenounceFeedGovernor_ClearsPendingGovernor() (gas: 43062)
+[PASS] test_RenounceFeedGovernor_DisablesTheRoleForever() (gas: 1320376)
+[PASS] test_Renounce_SucceedsWhenFullyConfigured() (gas: 160555)
+[PASS] test_RescueTokens_CanWithdrawExcessSelfBalance() (gas: 84545)
+[PASS] test_RescueTokens_CannotTouchUnclaimedReleasedRewards() (gas: 669638)
+[PASS] test_RescueTokens_CannotTouchVault() (gas: 34587)
+[PASS] test_RescueTokens_ETH_ReentrancyGuardBlocksReentry() (gas: 473728)
+[PASS] test_RescueTokens_ETH_Success() (gas: 43920)
+[PASS] test_RescueTokens_OnlyOwner() (gas: 22490)
+[PASS] test_RescueTokens_Token_Success() (gas: 414103)
+[PASS] test_RescueTokens_UnclaimedReleasedDecreasesAfterClaim() (gas: 764678)
+[PASS] test_RevertAcceptFeedGovernor_NoPendingAtAll() (gas: 19627)
+[PASS] test_RevertAcceptFeedGovernor_NotPending() (gas: 49340)
+[PASS] test_RevertApprove_ZeroSpender() (gas: 17419)
+[PASS] test_RevertClaim_Excluded() (gas: 64734)
+[PASS] test_RevertClaim_NoRewards() (gas: 34087)
+[PASS] test_RevertConstructor_BadAllocationSum() (gas: 160607)
+[PASS] test_RevertConstructor_ZeroAirdropWallet() (gas: 157146)
+[PASS] test_RevertConstructor_ZeroFeedGovernor() (gas: 158311)
+[PASS] test_RevertConstructor_ZeroFounderWallet() (gas: 157271)
+[PASS] test_RevertConstructor_ZeroMarketWallet() (gas: 158554)
+[PASS] test_RevertDecreaseAllowance_BelowZero() (gas: 49782)
+[PASS] test_RevertExclude_CannotModifyContractOrBurn() (gas: 31825)
+[PASS] test_RevertExclude_StatusUnchanged() (gas: 25443)
+[PASS] test_RevertExclude_ZeroAddress() (gas: 19613)
+[PASS] test_RevertGetETHPrice_SequencerRoundNotStarted() (gas: 177294)
+[PASS] test_RevertLockConfig_BeforePoolSet() (gas: 19610)
+[PASS] test_RevertPrice_ETHFeedStale() (gas: 235538)
+[PASS] test_RevertPrice_GracePeriodNotOver() (gas: 171899)
+[PASS] test_RevertPrice_InvalidETHPrice() (gas: 188083)
+[PASS] test_RevertPrice_PoolLockedMidSwap() (gas: 157729)
+[PASS] test_RevertPrice_PoolNotSet() (gas: 15020)
+[PASS] test_RevertPrice_RoundNotComplete() (gas: 212489)
+[PASS] test_RevertPrice_SequencerDown() (gas: 190444)
+[PASS] test_RevertPrice_StalePriceRound() (gas: 203726)
+[PASS] test_RevertPrice_StaleSequencerRound() (gas: 186754)
+[PASS] test_RevertRenounceFeedGovernor_NotGovernor() (gas: 18098)
+[PASS] test_RevertRenounce_BeforeConfigLocked() (gas: 145538)
+[PASS] test_RevertRescueTokens_ETH_InsufficientBalance() (gas: 26564)
+[PASS] test_RevertRescueTokens_ETH_TransferFailed() (gas: 109415)
+[PASS] test_RevertRescueTokens_Token_NotAContract() (gas: 30101)
+[PASS] test_RevertRescueTokens_Token_TransferFailed() (gas: 372914)
+[PASS] test_RevertSetConfig_AfterLocked() (gas: 153496)
+[PASS] test_RevertSetConfig_ZeroEthUsdFeed() (gas: 27144)
+[PASS] test_RevertSetConfig_ZeroPool() (gas: 26185)
+[PASS] test_RevertTransferFeedGovernor_NotGovernor() (gas: 19854)
+[PASS] test_RevertTransferFeedGovernor_ZeroAddress() (gas: 17811)
+[PASS] test_RevertTransferFrom_InsufficientAllowance() (gas: 51235)
+[PASS] test_RevertUpdatePriceFeeds_EthUsdSanityCheckFails() (gas: 1273837)
+[PASS] test_RevertUpdatePriceFeeds_NotAContract() (gas: 1315641)
+[PASS] test_RevertUpdatePriceFeeds_NotFeedGovernor() (gas: 1309604)
+[PASS] test_RevertUpdatePriceFeeds_ZeroAddresses() (gas: 1344895)
+[PASS] test_RewardAccrualAndClaim() (gas: 821944)
+[PASS] test_SetConfig_DetectsPoolIsToken0() (gas: 146749)
+[PASS] test_SetConfig_OnlyOwner() (gas: 23744)
+[PASS] test_SetConfig_ZeroSequencerFeedIsAllowed() (gas: 173759)
+[PASS] test_Symbol() (gas: 15967)
+[PASS] test_TransferFeedGovernor_CanBeReplacedBeforeAccept() (gas: 56225)
+[PASS] test_TransferFeedGovernor_SetsPendingOnly() (gas: 51907)
+[PASS] test_TransferFrom_Success() (gas: 105499)
+[PASS] test_TransferFrom_UnlimitedAllowanceNeverDecrements() (gas: 100129)
+[PASS] test_TransferOwnership_OnlyOwner() (gas: 20352)
+[PASS] test_TransferOwnership_RevertsOnZero() (gas: 19349)
+[PASS] test_TransferOwnership_SetsPendingOwner() (gas: 51210)
+[PASS] test_UpdatePriceFeeds_DoesNotTouchPoolOrConfigLock() (gas: 1456031)
+[PASS] test_UpdatePriceFeeds_EmitsEvent() (gas: 1354792)
+[PASS] test_UpdatePriceFeeds_SequencerCanBeDisabledThenReenabled() (gas: 1539556)
+[PASS] test_UpdatePriceFeeds_SwapsBothFeeds() (gas: 1465618)
+[PASS] test_UpdatePriceFeeds_WorksAfterLockConfigAndRenounceOwnership() (gas: 1467623)
+Suite result: ok. 113 passed; 0 failed; 0 skipped; finished in 2.99s (3.06s CPU time)
+
+Ran 4 tests for test/EvmVersionOsaka.t.sol:EvmVersionOsakaTest
+[PASS] test_DeployedBytecode_EmitsNoOsakaSpecificOpcode() (gas: 40590907)
+[PASS] test_DeployedBytecode_IsLegacyNotEOF() (gas: 28049)
+[PASS] test_DeployedBytecode_UsesPush0() (gas: 40593283)
+[PASS] test_OtherContracts_EmitNoOsakaSpecificOpcode() (gas: 31230072)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 97.69s (657.40ms CPU time)
+
+Ran 4 tests for test/invariants/RMHT.invariant.t.sol:RMHTInvariantTest
+[PASS] invariant_ContractHoldsAtLeastVaultBalance() (runs: 256, calls: 128000, reverts: 0)
+
+╭-------------+-------------+-------+---------+----------╮
+| Contract    | Selector    | Calls | Reverts | Discards |
++========================================================+
+| RMHTHandler | claim       | 42589 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | transfer    | 42882 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | warpAndPoke | 42529 | 0       | 0        |
+╰-------------+-------------+-------+---------+----------╯
+
+[PASS] invariant_MilestoneCountConsistentWithVaultDrop() (runs: 256, calls: 128000, reverts: 0)
+
+╭-------------+-------------+-------+---------+----------╮
+| Contract    | Selector    | Calls | Reverts | Discards |
++========================================================+
+| RMHTHandler | claim       | 42589 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | transfer    | 42882 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | warpAndPoke | 42529 | 0       | 0        |
+╰-------------+-------------+-------+---------+----------╯
+
+[PASS] invariant_TotalSupplyNeverChanges() (runs: 256, calls: 128000, reverts: 0)
+
+╭-------------+-------------+-------+---------+----------╮
+| Contract    | Selector    | Calls | Reverts | Discards |
++========================================================+
+| RMHTHandler | claim       | 42589 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | transfer    | 42882 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | warpAndPoke | 42529 | 0       | 0        |
+╰-------------+-------------+-------+---------+----------╯
+
+[PASS] invariant_VaultBalanceNeverExceedsInitial() (runs: 256, calls: 128000, reverts: 0)
+
+╭-------------+-------------+-------+---------+----------╮
+| Contract    | Selector    | Calls | Reverts | Discards |
++========================================================+
+| RMHTHandler | claim       | 42589 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | transfer    | 42882 | 0       | 0        |
+|-------------+-------------+-------+---------+----------|
+| RMHTHandler | warpAndPoke | 42529 | 0       | 0        |
+╰-------------+-------------+-------+---------+----------╯
+
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 101.87s (395.71s CPU time)
+
+Ran 9 test suites in 101.88s (204.96s CPU time): 314 tests passed, 0 failed, 0 skipped (314 total tests)
+
+╭--------------------------------------------------------------+------------------+------------------+------------------+------------------╮
+| File                                                         | % Lines          | % Statements     | % Branches       | % Funcs          |
++==========================================================================================================================================+
+| src/RMHT.sol                                                 | 98.42% (312/317) | 95.28% (323/339) | 30.66% (42/137)  | 100.00% (57/57)  |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| src/RMHTAirdropCustodian.sol                                 | 99.12% (113/114) | 99.24% (131/132) | 58.14% (25/43)   | 100.00% (21/21)  |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| src/RMHTFounderCustodian.sol                                 | 100.00% (82/82)  | 100.00% (92/92)  | 64.29% (18/28)   | 100.00% (20/20)  |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| src/RMHTLiquidityCustodian.sol                               | 100.00% (49/49)  | 100.00% (42/42)  | 16.67% (4/24)    | 100.00% (13/13)  |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| src/libraries/UniswapV3TWAP.sol                              | 100.00% (44/44)  | 100.00% (86/86)  | 78.57% (22/28)   | 100.00% (3/3)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/UniswapV3TWAP.t.sol                                     | 100.00% (6/6)    | 100.00% (6/6)    | 100.00% (0/0)    | 100.00% (3/3)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/invariants/RMHTHandler.sol                              | 100.00% (19/19)  | 100.00% (19/19)  | 100.00% (3/3)    | 100.00% (4/4)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MaliciousReentrantAirdropRescue_20260825_1600.sol | 100.00% (10/10)  | 100.00% (7/7)    | 60.00% (3/5)     | 100.00% (2/2)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MaliciousReentrantFounderRescue_20260825_1400.sol | 100.00% (16/16)  | 100.00% (10/10)  | 66.67% (6/9)     | 100.00% (3/3)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MaliciousReentrantOwner.sol                       | 100.00% (10/10)  | 100.00% (6/6)    | 100.00% (3/3)    | 100.00% (3/3)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MaliciousReentrantPositionManager.sol             | 87.50% (14/16)   | 90.91% (10/11)   | 60.00% (3/5)     | 80.00% (4/5)     |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MockAggregatorV3.sol                              | 100.00% (19/19)  | 100.00% (14/14)  | 50.00% (2/4)     | 100.00% (6/6)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MockPositionManager.sol                           | 100.00% (16/16)  | 100.00% (11/11)  | 100.00% (0/0)    | 100.00% (6/6)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MockRMHTWithMilestones.sol                        | 100.00% (23/23)  | 100.00% (16/16)  | 20.00% (1/5)     | 100.00% (7/7)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MockRMHTWithRewards.sol                           | 100.00% (25/25)  | 100.00% (17/17)  | 20.00% (1/5)     | 100.00% (8/8)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MockSimpleToken.sol                               | 100.00% (9/9)    | 100.00% (7/7)    | 100.00% (1/1)    | 100.00% (3/3)    |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| test/mocks/MockUniswapV3Pool.sol                             | 92.00% (69/75)   | 95.00% (76/80)   | 64.29% (9/14)    | 88.24% (15/17)   |
+|--------------------------------------------------------------+------------------+------------------+------------------+------------------|
+| Total                                                        | 98.35% (836/850) | 97.54% (873/895) | 45.54% (143/314) | 98.34% (178/181) |
+╰--------------------------------------------------------------+------------------+------------------+------------------+------------------╯

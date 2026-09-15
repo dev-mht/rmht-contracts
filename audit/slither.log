@@ -1,0 +1,158 @@
+[redacted]:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+'forge clean' running (wd: [redacted])
+'forge config --json' running
+'forge build --build-info --skip ./test/** ./script/** --force' running (wd: [redacted])
+INFO:Detectors:
+Detector: divide-before-multiply
+RMHT._executeMilestone(uint256) (src/RMHT.sol#1321-1343) performs a multiplication on the result of a division:
+	- release = (vaultBalance * RELEASE_BPS) / BPS_DENOM (src/RMHT.sol#1322)
+	- milestoneRewardPerToken += (release * REWARD_PRECISION) / eligible (src/RMHT.sol#1340)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (src/libraries/UniswapV3TWAP.sol#138)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x2216e584f5fa1ea926041bedfe98) >> 128 (src/libraries/UniswapV3TWAP.sol#137)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x5d6af8dedb81196699c329225ee604) >> 128 (src/libraries/UniswapV3TWAP.sol#136)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x9aa508b5b7a84e1c677de54f3e99bc9) >> 128 (src/libraries/UniswapV3TWAP.sol#135)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x31be135f97d08fd981231505542fcfa6) >> 128 (src/libraries/UniswapV3TWAP.sol#134)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x70d869a156d2a1b890bb3df62baf32f7) >> 128 (src/libraries/UniswapV3TWAP.sol#133)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xa9f746462d870fdf8a65dc1f90e061e5) >> 128 (src/libraries/UniswapV3TWAP.sol#132)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xd097f3bdfd2022b8845ad8f792aa5825) >> 128 (src/libraries/UniswapV3TWAP.sol#131)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xe7159475a2c29b7443b29c7fa6e889d9) >> 128 (src/libraries/UniswapV3TWAP.sol#130)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf3392b0822b70005940c7a398e4b70f3) >> 128 (src/libraries/UniswapV3TWAP.sol#129)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf987a7253ac413176f2b074cf7815e54) >> 128 (src/libraries/UniswapV3TWAP.sol#128)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfcbe86c7900a88aedcffc83b479aa3a4) >> 128 (src/libraries/UniswapV3TWAP.sol#127)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfe5dee046a99a2a811c461f1969c3053) >> 128 (src/libraries/UniswapV3TWAP.sol#126)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff2ea16466c96a3843ec78b326b52861) >> 128 (src/libraries/UniswapV3TWAP.sol#125)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff973b41fa98c081472e6896dfb254c0) >> 128 (src/libraries/UniswapV3TWAP.sol#124)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffcb9843d60f6159c9db58835c926644) >> 128 (src/libraries/UniswapV3TWAP.sol#123)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffe5caca7e10e4e61c3624eaa0941cd0) >> 128 (src/libraries/UniswapV3TWAP.sol#122)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff2e50f5f656932ef12357cf3c7fdcc) >> 128 (src/libraries/UniswapV3TWAP.sol#121)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff97272373d413259a46990580e213a) >> 128 (src/libraries/UniswapV3TWAP.sol#120)
+	- ratio = type()(uint256).max / ratio (src/libraries/UniswapV3TWAP.sol#140)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+Detector: incorrect-equality
+RMHTAirdropCustodian.claimReward() (src/RMHTAirdropCustodian.sol#615-623) uses a dangerous strict equality:
+	- reward == 0 (src/RMHTAirdropCustodian.sol#618)
+RMHTAirdropCustodian.rescueEth(address) (src/RMHTAirdropCustodian.sol#642-649) uses a dangerous strict equality:
+	- amount == 0 (src/RMHTAirdropCustodian.sol#645)
+RMHTFounderCustodian.rescueEth(address) (src/RMHTFounderCustodian.sol#494-501) uses a dangerous strict equality:
+	- amount == 0 (src/RMHTFounderCustodian.sol#497)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Detector: unused-return
+RMHT.setConfig(address,address,address) (src/RMHT.sol#806-849) ignores return value by (None,None,None,None,observationCardinalityNext,None,None) = IUniswapV3PoolMinimal(pool).slot0() (src/RMHT.sol#836)
+RMHT.updatePriceFeeds(address,address) (src/RMHT.sol#911-950) ignores return value by AggregatorV3Interface(newEthUsdFeedAddr).decimals() (src/RMHT.sol#934)
+RMHT.updatePriceFeeds(address,address) (src/RMHT.sol#911-950) ignores return value by (None,ethUsdAnswer,None,None,None) = AggregatorV3Interface(newEthUsdFeedAddr).latestRoundData() (src/RMHT.sol#935)
+RMHT.updatePriceFeeds(address,address) (src/RMHT.sol#911-950) ignores return value by AggregatorV3Interface(newSequencerFeedAddr).decimals() (src/RMHT.sol#942)
+RMHT.updatePriceFeeds(address,address) (src/RMHT.sol#911-950) ignores return value by AggregatorV3Interface(newSequencerFeedAddr).latestRoundData() (src/RMHT.sol#943)
+RMHT._requireSequencerUp() (src/RMHT.sol#1001-1040) ignores return value by (roundId,status,startedAt,None,answeredInRound) = sequencerUptimeFeed.latestRoundData() (src/RMHT.sol#1024-1025)
+RMHT.getETHPriceUSD() (src/RMHT.sol#1043-1058) ignores return value by (roundId,answer,None,updatedAt,answeredInRound) = ethUsdFeed.latestRoundData() (src/RMHT.sol#1045-1046)
+RMHT.getRMHTPriceInETH() (src/RMHT.sol#1089-1140) ignores return value by (None,None,None,None,None,None,unlocked) = IUniswapV3PoolMinimal(uniswapV3Pool).slot0() (src/RMHT.sol#1096)
+RMHT._pokeMilestone() (src/RMHT.sol#1223-1295) ignores return value by (None,None,None,None,None,None,unlocked) = IUniswapV3PoolMinimal(uniswapV3Pool).slot0() (src/RMHT.sol#1226)
+RMHTLiquidityCustodian.currentLiquidity() (src/RMHTLiquidityCustodian.sol#281-286) ignores return value by (None,None,None,None,None,None,None,liquidity,None,None,None,None) = positionManager.positions(tokenId) (src/RMHTLiquidityCustodian.sol#285)
+UniswapV3TWAP.consult(address,uint32) (src/libraries/UniswapV3TWAP.sol#155-173) ignores return value by (tickCumulatives,None) = IUniswapV3PoolObservable(pool).observe(secondsAgos) (src/libraries/UniswapV3TWAP.sol#162)
+UniswapV3TWAP.getOldestObservationSecondsAgo(address) (src/libraries/UniswapV3TWAP.sol#185-201) ignores return value by (None,None,observationIndex,observationCardinality,None,None,None) = IUniswapV3PoolObservable(pool).slot0() (src/libraries/UniswapV3TWAP.sol#186-187)
+UniswapV3TWAP.getOldestObservationSecondsAgo(address) (src/libraries/UniswapV3TWAP.sol#185-201) ignores return value by (observationTimestamp,None,None,initialized) = IUniswapV3PoolObservable(pool).observations((observationIndex + 1) % observationCardinality) (src/libraries/UniswapV3TWAP.sol#190-191)
+UniswapV3TWAP.getOldestObservationSecondsAgo(address) (src/libraries/UniswapV3TWAP.sol#185-201) ignores return value by (observationTimestamp,None,None,None) = IUniswapV3PoolObservable(pool).observations(0) (src/libraries/UniswapV3TWAP.sol#197)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+Detector: reentrancy-benign
+Reentrancy in RMHTAirdropCustodian.harvestVaultRewards() (src/RMHTAirdropCustodian.sol#596-609):
+	External calls:
+	- IRMHTRewards(address(rmht)).claimRewards() (src/RMHTAirdropCustodian.sol#601)
+	State variables written after the call(s):
+	- rewardPerShare += (harvested * REWARD_PRECISION) / activeAllocated (src/RMHTAirdropCustodian.sol#605)
+Reentrancy in RMHTFounderCustodian.harvestVaultRewards() (src/RMHTFounderCustodian.sol#450-463):
+	External calls:
+	- IRMHTRewards(address(rmht)).claimRewards() (src/RMHTFounderCustodian.sol#455)
+	State variables written after the call(s):
+	- totalHarvestedRewards += harvested (src/RMHTFounderCustodian.sol#459)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+INFO:Detectors:
+Detector: timestamp
+RMHT._requireSequencerUp() (src/RMHT.sol#1001-1040) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp - startedAt > SEQUENCER_GRACE_PERIOD,RMHT: Grace period not over) (src/RMHT.sol#1036)
+RMHT.getETHPriceUSD() (src/RMHT.sol#1043-1058) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp - updatedAt <= ETH_USD_HEARTBEAT,RMHT: ETH price feed stale) (src/RMHT.sol#1056)
+RMHT._pokeMilestone() (src/RMHT.sol#1223-1295) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp > milestoneArmedAt + MILESTONE_CONFIRM_WINDOW (src/RMHT.sol#1254)
+	- block.timestamp < milestoneLastConfirmedAt + MILESTONE_CONFIRM_INTERVAL (src/RMHT.sol#1273)
+	- block.timestamp >= lastMilestoneTimestamp + MILESTONE_COOLDOWN (src/RMHT.sol#1285)
+RMHTAirdropCustodian.setUnlockTime(uint48) (src/RMHTAirdropCustodian.sol#459-466) uses timestamp for comparisons
+	Dangerous comparisons:
+	- unlockTime_ <= block.timestamp (src/RMHTAirdropCustodian.sol#462)
+RMHTAirdropCustodian.claim() (src/RMHTAirdropCustodian.sol#521-545) uses timestamp for comparisons
+	Dangerous comparisons:
+	- unlockedByTime = unlockTimeSet && block.timestamp >= unlockTime (src/RMHTAirdropCustodian.sol#530)
+	- ! unlockedByTime && ! unlockedByMilestone (src/RMHTAirdropCustodian.sol#532)
+RMHTFounderCustodian.constructor(address,address,uint48) (src/RMHTFounderCustodian.sol#341-356) uses timestamp for comparisons
+	Dangerous comparisons:
+	- unlockTime_ <= block.timestamp (src/RMHTFounderCustodian.sol#350)
+RMHTFounderCustodian.unlockedAmount() (src/RMHTFounderCustodian.sol#386-388) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= unlockTime (src/RMHTFounderCustodian.sol#387)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+Detector: cyclomatic-complexity
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) has a high cyclomatic complexity (24).
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cyclomatic-complexity
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in RMHT.rescueTokens(address,uint256) (src/RMHT.sol#1426-1451):
+	- (sent,None) = address(owner()).call{value: amount}() (src/RMHT.sol#1435)
+	- (ok,data) = token.call(abi.encodeCall(IERC20.transfer,(owner(),amount))) (src/RMHT.sol#1445-1447)
+Low level call in RMHTAirdropCustodian.rescueEth(address) (src/RMHTAirdropCustodian.sol#642-649):
+	- (success,None) = to.call{value: amount}() (src/RMHTAirdropCustodian.sol#647)
+Low level call in RMHTFounderCustodian.rescueEth(address) (src/RMHTFounderCustodian.sol#494-501):
+	- (success,None) = to.call{value: amount}() (src/RMHTFounderCustodian.sol#499)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Detector: missing-inheritance
+RMHT (src/RMHT.sol#421-1466) should inherit from IRMHTRewards (src/RMHTFounderCustodian.sol#106-114)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
+INFO:Detectors:
+Detector: too-many-digits
+UniswapV3TWAP.getSqrtRatioAtTick(int24) (src/libraries/UniswapV3TWAP.sol#112-149) uses literals with too many digits:
+	- ratio = 0x100000000000000000000000000000000 (src/libraries/UniswapV3TWAP.sol#117-119)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+INFO:Slither:. analyzed (28 contracts with 100 detectors), 52 result(s) found

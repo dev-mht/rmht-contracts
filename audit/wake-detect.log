@@ -1,0 +1,170 @@
+  RMHT.sol (pragma retrograde)
+  RMHTAirdropCustodian.sol (pragma retrograde)
+  RMHTFounderCustodian.sol (pragma retrograde)
+  RMHTLiquidityCustodian.sol (pragma retrograde)
+  libraries/UniswapV3TWAP.sol (pragma retrograde)
+
+5 pragma(s) retrograde(s) vers 0.8.34. Miroir ecrit dans [redacted]
+Lancer ensuite :  cd wake-compat && wake detect
+[15:50:59] Found 5 *.sol files in 0.00 s                           detect.py:729
+           Failed to load previous build artifacts               compiler.py:863
+[15:51:01] Compiled 5 files using 4 solc runs in 2.38 s         compiler.py:1249
+[15:51:02] Processed compilation results in 0.45 s              compiler.py:1502
+           Wrote build artifacts in 0.15 s                      compiler.py:1629
+
+
+╭─ [MEDIUM][HIGH] Unsafe variant of ERC-20 call [unsafe-erc20-call] ───────────╮
+│   541         activeAllocated -= amount;                                     │
+│   542                                                                        │
+│   543         emit Claimed(msg.sender, amount);                              │
+│ ❱ 544         if (!rmht.transfer(msg.sender, amount)) revert TransferFailed( │
+│   545     }                                                                  │
+│   546                                                                        │
+│   547     // ═══════════════════════════════════════════════════════════════ │
+╰─ src/RMHTAirdropCustodian.sol ───────────────────────────────────────────────╯
+
+
+╭─ [MEDIUM][HIGH] Unsafe variant of ERC-20 call [unsafe-erc20-call] ───────────╮
+│   619                                                                        │
+│   620         delete pendingReward[msg.sender];                              │
+│   621         emit RewardClaimed(msg.sender, reward);                        │
+│ ❱ 622         if (!rmht.transfer(msg.sender, reward)) revert TransferFailed( │
+│   623     }                                                                  │
+│   624                                                                        │
+│   625     /// @notice Reward de palier réclamable pour `user` à l'instant pr │
+╰─ src/RMHTAirdropCustodian.sol ───────────────────────────────────────────────╯
+
+
+╭─ [MEDIUM][HIGH] Unsafe variant of ERC-20 call [unsafe-erc20-call] ───────────╮
+│   408         claimedAmount += claimable;                                    │
+│   409                                                                        │
+│   410         emit Claimed(beneficiary, claimable, claimedAmount);           │
+│ ❱ 411         if (!rmht.transfer(beneficiary, claimable)) revert TransferFai │
+│   412     }                                                                  │
+│   413                                                                        │
+│   414     // ═══════════════════════════════════════════════════════════════ │
+╰─ src/RMHTFounderCustodian.sol ───────────────────────────────────────────────╯
+
+
+╭─ [MEDIUM][HIGH] Unsafe variant of ERC-20 call [unsafe-erc20-call] ───────────╮
+│   479         claimedRewards += claimable;                                   │
+│   480                                                                        │
+│   481         emit RewardClaimed(beneficiary, claimable);                    │
+│ ❱ 482         if (!rmht.transfer(beneficiary, claimable)) revert TransferFai │
+│   483     }                                                                  │
+│   484                                                                        │
+│   485     // ═══════════════════════════════════════════════════════════════ │
+╰─ src/RMHTFounderCustodian.sol ───────────────────────────────────────────────╯
+
+
+╭─ [WARNING][HIGH] Unchecked return value [unchecked-return-value] ────────────╮
+│   931         // Sanity check : le nouveau feed ETH/USD doit répondre à l'in │
+│   932         // attendue avec une donnée plausible (même check qu'utilisé e │
+│   933         // production dans getETHPriceUSD() : prix strictement positif │
+│ ❱ 934         AggregatorV3Interface(newEthUsdFeedAddr).decimals();           │
+│   935         (, int256 ethUsdAnswer, , , ) = AggregatorV3Interface(newEthUs │
+│   936         require(ethUsdAnswer > 0, "RMHT: ETH/USD feed sanity check fai │
+│   937                                                                        │
+╰─ src/RMHT.sol ───────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][HIGH] Unchecked return value [unchecked-return-value] ────────────╮
+│   939         // (answer == 0 signifie "up", pas un prix) — on vérifie seule │
+│   940         // qu'il répond, sans contrainte sur la valeur retournée.      │
+│   941         if (newSequencerFeedAddr != address(0)) {                      │
+│ ❱ 942             AggregatorV3Interface(newSequencerFeedAddr).decimals();    │
+│   943             AggregatorV3Interface(newSequencerFeedAddr).latestRoundDat │
+│   944         }                                                              │
+│   945                                                                        │
+╰─ src/RMHT.sol ───────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][HIGH] Unchecked return value [unchecked-return-value] ────────────╮
+│   940         // qu'il répond, sans contrainte sur la valeur retournée.      │
+│   941         if (newSequencerFeedAddr != address(0)) {                      │
+│   942             AggregatorV3Interface(newSequencerFeedAddr).decimals();    │
+│ ❱ 943             AggregatorV3Interface(newSequencerFeedAddr).latestRoundDat │
+│   944         }                                                              │
+│   945                                                                        │
+│   946         ethUsdFeed          = AggregatorV3Interface(newEthUsdFeedAddr) │
+╰─ src/RMHT.sol ───────────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Possible reentrancy in `RMHT.rescueTokens(address,uint256─╮
+│   1432             super._update(address(this), owner(), amount);            │
+│   1433         } else if (token == address(0)) {                             │
+│   1434             require(amount <= address(this).balance, "RMHT: Insuffici │
+│ ❱ 1435             (bool sent, ) = payable(owner()).call{value: amount}(""); │
+│   1436             require(sent, "RMHT: ETH transfer failed");               │
+│   1437         } else {                                                      │
+│   1438             // Audit fix (SolidityScan M001 — Account Existence Check │
+╰─ src/RMHT.sol ───────────────────────────────────────────────────────────────╯
+└── ╭─ Exploitable from `RMHT.rescueTokens(address,uint256)` ──────────────────╮
+    │   1432             super._update(address(this), owner(), amount);        │
+    │   1433         } else if (token == address(0)) {                         │
+    │   1434             require(amount <= address(this).balance, "RMHT: Insuf │
+    │ ❱ 1435             (bool sent, ) = payable(owner()).call{value: amount}( │
+    │   1436             require(sent, "RMHT: ETH transfer failed");           │
+    │   1437         } else {                                                  │
+    │   1438             // Audit fix (SolidityScan M001 — Account Existence C │
+    ╰─ src/RMHT.sol ───────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][MEDIUM] Possible reentrancy in `RMHT.rescueTokens(address,uint256─╮
+│   1442             // rejects that case explicitly instead of silently repor │
+│   1443             // rescue as done when `token` isn't actually a contract. │
+│   1444             require(token.code.length > 0, "RMHT: Not a contract");   │
+│ ❱ 1445             (bool ok, bytes memory data) = token.call(                │
+│   1446                 abi.encodeCall(IERC20.transfer, (owner(), amount))    │
+│   1447             );                                                        │
+│   1448             require(ok && (data.length == 0 || abi.decode(data, (bool │
+╰─ src/RMHT.sol ───────────────────────────────────────────────────────────────╯
+└── ╭─ Exploitable from `RMHT.rescueTokens(address,uint256)` ──────────────────╮
+    │   1442             // rejects that case explicitly instead of silently r │
+    │   1443             // rescue as done when `token` isn't actually a contr │
+    │   1444             require(token.code.length > 0, "RMHT: Not a contract" │
+    │ ❱ 1445             (bool ok, bytes memory data) = token.call(            │
+    │   1446                 abi.encodeCall(IERC20.transfer, (owner(), amount) │
+    │   1447             );                                                    │
+    │   1448             require(ok && (data.length == 0 || abi.decode(data, ( │
+    ╰─ src/RMHT.sol ───────────────────────────────────────────────────────────╯
+
+
+╭─ [WARNING][LOW] Use of address.balance [balance-relied-on] ──────────────────╮
+│   641     /// @param to destinataire de l'ETH récupéré, ne peut pas être zér │
+│   642     function rescueEth(address payable to) external payable nonReentra │
+│   643         require(to != address(0), "RMHTAirdrop: zero address");        │
+│ ❱ 644         uint256 amount = address(this).balance;                        │
+│   645         if (amount == 0) revert NothingToRescue();                     │
+│   646         emit EthRescued(to, amount);                                   │
+│   647         (bool success, ) = to.call{value: amount}("");                 │
+╰─ src/RMHTAirdropCustodian.sol ───────────────────────────────────────────────╯
+└── ╭─ In strict comparison here ──────────────────────────────────────────────╮
+    │   642     function rescueEth(address payable to) external payable nonRee │
+    │   643         require(to != address(0), "RMHTAirdrop: zero address");    │
+    │   644         uint256 amount = address(this).balance;                    │
+    │ ❱ 645         if (amount == 0) revert NothingToRescue();                 │
+    │   646         emit EthRescued(to, amount);                               │
+    │   647         (bool success, ) = to.call{value: amount}("");             │
+    │   648         if (!success) revert EthTransferFailed();                  │
+    ╰─ src/RMHTAirdropCustodian.sol ───────────────────────────────────────────╯
+
+
+╭─ [WARNING][LOW] Use of address.balance [balance-relied-on] ──────────────────╮
+│   493     /// @param to destinataire de l'ETH récupéré, ne peut pas être zér │
+│   494     function rescueEth(address payable to) external payable nonReentra │
+│   495         require(to != address(0), "RMHTFounder: zero address");        │
+│ ❱ 496         uint256 amount = address(this).balance;                        │
+│   497         if (amount == 0) revert NothingToRescue();                     │
+│   498         emit EthRescued(to, amount);                                   │
+│   499         (bool success, ) = to.call{value: amount}("");                 │
+╰─ src/RMHTFounderCustodian.sol ───────────────────────────────────────────────╯
+└── ╭─ In strict comparison here ──────────────────────────────────────────────╮
+    │   494     function rescueEth(address payable to) external payable nonRee │
+    │   495         require(to != address(0), "RMHTFounder: zero address");    │
+    │   496         uint256 amount = address(this).balance;                    │
+    │ ❱ 497         if (amount == 0) revert NothingToRescue();                 │
+    │   498         emit EthRescued(to, amount);                               │
+    │   499         (bool success, ) = to.call{value: amount}("");             │
+    │   500         if (!success) revert EthTransferFailed();                  │
+    ╰─ src/RMHTFounderCustodian.sol ───────────────────────────────────────────╯
