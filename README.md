@@ -4,6 +4,20 @@ Smart contracts for **$RMHT**, deployed on Robinhood Chain (chain ID 4663).
 Fork of the Milestone HODL Token model: an ERC-20 vault that releases tokens to
 holders every time market cap crosses a new on-chain, TWAP-verified milestone.
 
+## Deployed addresses — Robinhood Chain (chain ID 4663)
+
+Deployed on **4 September 2026**. Configuration locked, then ownership renounced on all four contracts.
+
+| Contract | Address |
+|---|---|
+| `RMHT` ($RMHT token) | [`0xbD4487dad62d23e0677E6a94c99cB0AE45328bA4`](https://robinhoodchain.blockscout.com/address/0xbD4487dad62d23e0677E6a94c99cB0AE45328bA4) |
+| `RMHTAirdropCustodian` | [`0xdEc68344a41Cc6104ed5ff2C88F2D16a794688C1`](https://robinhoodchain.blockscout.com/address/0xdEc68344a41Cc6104ed5ff2C88F2D16a794688C1) |
+| `RMHTFounderCustodian` | [`0x4C944c27160A1532b9De3a69d0Ec64164a6f03d8`](https://robinhoodchain.blockscout.com/address/0x4C944c27160A1532b9De3a69d0Ec64164a6f03d8) |
+| `RMHTLiquidityCustodian` | [`0x50336e2a1396364895702a5222faC47bD0d38407`](https://robinhoodchain.blockscout.com/address/0x50336e2a1396364895702a5222faC47bD0d38407) |
+| Uniswap V3 pool (RMHT/WETH) | [`0xabe3B1fF5Fc6a9638D0c46f2379B20f7e6173bEe`](https://robinhoodchain.blockscout.com/address/0xabe3B1fF5Fc6a9638D0c46f2379B20f7e6173bEe) |
+
+All contracts are verified on Blockscout. Official site: [rmht.apexpad.io](https://rmht.apexpad.io) — any other $RMHT address is not ours.
+
 This repository contains the contracts and their test suite only. Deployment
 scripts, operational tooling, and transaction history are kept out of the
 public repository intentionally (see below).
